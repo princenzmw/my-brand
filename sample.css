@@ -1,0 +1,81 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+}
+body,
+html {
+}
+body {
+  font-family: Nunito "Odor Mean Chey" "Playfair Display";
+}
+.container,
+.navbar {
+  display: flex;
+}
+.navbar {
+  flex-basis: 17%;
+  flex-direction: column;
+  padding: 29px;
+  height: 100vh;
+  height: 100dvh;
+  gap: 10%;
+  background: linear-gradient(45deg, #053067, #f3b26e);
+  border-right: 2px solid #314f5f;
+  position: fixed;
+}
+a {
+  color: #fff;
+  font-size: 24px;
+}
+.contents {
+  /* flex-basis: 83%; */
+  /* flex: 1; */
+  padding: 10px;
+  background-image: url(sky-circle.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+  padding-left: 17%;
+  /* margin-left: 17%; */
+  /* overflow: auto; */
+}
+.initial {
+  height: 100vh;
+  padding: 10px;
+  display: flex;
+}
+.item1,
+.item2 {
+  flex-basis: 50%;
+}
+.item2 {
+  padding: 30px 10px;
+}
+.item1 > h1 {
+  font-size: 64px;
+  line-height: 76.8px;
+  padding-bottom: 32px;
+}
+.item1 > p {
+  font-size: 24px;
+  padding-bottom: 32px;
+}
+.item1 > button {
+  font-size: 24px;
+  margin-right: 32px;
+  padding: 20px;
+  border-radius: 15px;
+}
+.item2 p {
+  font-size: 22px;
+}
+.prof1 {
+  border-radius: 50%;
+  height: 100px;
+  width: 100px;
+  /* justify-self: center;
+  align-self: center; */
+}
