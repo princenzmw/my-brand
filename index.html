@@ -1,49 +1,270 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>My Personal Website | Home</title>
-    <link rel="stylesheet" href="sample.css" />
-  </head>
-  <body>
-    <div class="container">
-      <div class="navbar">
-        <a href="" class="home">&#9750; Home</a>
-        <a href="" class="home">&#9883; About me</a>
-        <a href="" class="home">&#9733; Skills</a>
-        <a href="" class="home">&#9745; Portfolio</a>
-        <a href="" class="home">&#9752; Blogs</a>
-        <a href="" class="home">&#9743; Contact me</a>
-        <a href="" class="home">&#10149; Log In</a>
-      </div>
-      <div class="contents">
-        <div class="initial">
-          <div class="item1">
-            <h1 class="intro">Hello, my name is Prince NZAMUWE</h1>
-            <p>
-              I'm an aspiring <strong>Software Engineer</strong>, a
-              <strong>designer</strong>, and a <strong>developer</strong>
-              constantly working to build new skills and hone my existing ones.
-              <em>I currently live in Kigali, Rwanda</em>
-            </p>
-            <button>Projects</button>
-            <button>LinkedIn</button>
-          </div>
-          <div class="item2">
-            <p>
-              I have experienced various types of work and have easily adapted
-              to all the tasks I've undertaken over the years. I've enjoyed each
-              of them, but nothing feels as fulfilling as this. I have a deep
-              passion for my work and hope to cultivate that passion into a
-              career that brings me joy and fulfillment. Being a software
-              engineer is something I love, and I aspire to inspire as many
-              people as possible.
-            </p>
-            <img src="me.jpg" alt="my portail photo" class="prof1" />
-          </div>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <title>Prince NZAMUWE</title>
+    <!-- styles for swipper -->
+
+    <link rel="stylesheet" href="css/swiper-bundle.min.css">
+    <!-- main css style -->
+    <link rel="stylesheet" href="css/styles.css" />
+</head>
+
+<body>
+    <header>
+        <img src="./images/themify-logo-svgrepo-com.svg" alt="Logo image" class="logo_icon">
+        <ol class="nav_links" id="navlinks">
+            <a href="#homepage" class="sidelinks">
+                <li>Home</li>
+            </a>
+            <a href="#skillspage" class="sidelinks">
+                <li>Skills</li>
+            </a>
+            <a href="#aboutpage" class="sidelinks">
+                <li>About</li>
+            </a>
+            <a href="#projbody" class="sidelinks">
+                <li>Portfolio</li>
+            </a>
+            <a href="#contactpage" class="sidelinks">
+                <li>Contact</li>
+            </a>
+            <a href="#blogspage" class="sidelinks">
+                <li>Blogs</li>
+            </a>
+            <a href="#loginpage" class="sidelinks login">
+                <li>Login</li>
+            </a>
+            <a href="#signuppage" class="sidelinks signup">
+                <li>Signup</li>
+            </a>
+        </ol>
+        <img src="./images/cld-server-svgrepo-com.svg" alt="" class="navbutton">
+    </header>
+    <main>
+        <div id="homepage">
+            <div class="leftside">
+                <h1 id="welcome">
+                    Hello, my name is <span id="my-name">Prince NZAMUWE</span>
+                </h1>
+                <p id="descript">
+                    I'm an aspiring Software developer / engineer always working to build new skills and hone my
+                    existing ones.
+                </p>
+                <div class="home-icons">
+                    <i class="bx bxl-facebook-circle"></i>
+                    <i class="bx bxl-instagram"></i>
+                    <i class="bx bxl-twitter"></i>
+                </div>
+                <div class="home-buttons">
+                    <a href="#" id="port">Portfolio</a>
+                    <a href="#" id="cont">Contact me</a>
+                </div>
+            </div>
+            <div class="rightside">
+                <img src="images/princehome.png" alt="Home Picture" class="princehome" />
+            </div>
         </div>
-      </div>
-    </div>
-  </body>
+        <div id="projbody">
+            <div class="slide-container swiper">
+                <div class="slide-content">
+                    <div class="card-wrapper swiper-wrapper">
+                        <div class="card swiper-slide">
+                            <div class="image-content">
+                                <span class="card-overlay"></span>
+                                <div class="card-image">
+                                    <img src="images/princehome.png" alt="" class="card-img">
+                                </div>
+                            </div>
+                            <div class="card-content">
+                                <h2 class="card-name">Project Number 1</h2>
+                                <p class="card-description">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                    Nulla est
+                                    sint
+                                    aut
+                                    soluta doloremque odio voluptatum? Mollitia perferendis porro ipsam, odio, rerum est
+                                    provident
+                                    adipisci fuga voluptates quia nisi sequi!
+                                </p>
+                                <button class="card-button">Read More</button>
+                            </div>
+                        </div>
+                        <div class="card swiper-slide">
+                            <div class="image-content">
+                                <span class="card-overlay"></span>
+                                <div class="card-image">
+                                    <img src="images/princehome.png" alt="" class="card-img">
+                                </div>
+                            </div>
+                            <div class="card-content">
+                                <h2 class="card-name">Project Number 2</h2>
+                                <p class="card-description">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                    Nulla est
+                                    sint
+                                    aut
+                                    soluta doloremque odio voluptatum? Mollitia perferendis porro ipsam, odio, rerum est
+                                    provident
+                                    adipisci fuga voluptates quia nisi sequi!
+                                </p>
+                                <button class="card-button">Read More</button>
+                            </div>
+                        </div>
+                        <div class="card swiper-slide">
+                            <div class="image-content">
+                                <span class="card-overlay"></span>
+                                <div class="card-image">
+                                    <img src="images/princehome.png" alt="" class="card-img">
+                                </div>
+                            </div>
+                            <div class="card-content">
+                                <h2 class="card-name">Project Number 3</h2>
+                                <p class="card-description">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                    Nulla est
+                                    sint
+                                    aut
+                                    soluta doloremque odio voluptatum? Mollitia perferendis porro ipsam, odio, rerum est
+                                    provident
+                                    adipisci fuga voluptates quia nisi sequi!
+                                </p>
+                                <button class="card-button">Read More</button>
+                            </div>
+                        </div>
+                        <div class="card swiper-slide">
+                            <div class="image-content">
+                                <span class="card-overlay"></span>
+                                <div class="card-image">
+                                    <img src="images/princehome.png" alt="" class="card-img">
+                                </div>
+                            </div>
+                            <div class="card-content">
+                                <h2 class="card-name">Project Number 4</h2>
+                                <p class="card-description">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                    Nulla est
+                                    sint
+                                    aut
+                                    soluta doloremque odio voluptatum? Mollitia perferendis porro ipsam, odio, rerum est
+                                    provident
+                                    adipisci fuga voluptates quia nisi sequi!
+                                </p>
+                                <button class="card-button">Read More</button>
+                            </div>
+                        </div>
+                        <div class="card swiper-slide">
+                            <div class="image-content">
+                                <span class="card-overlay"></span>
+                                <div class="card-image">
+                                    <img src="images/princehome.png" alt="" class="card-img">
+                                </div>
+                            </div>
+                            <div class="card-content">
+                                <h2 class="card-name">Project Number 5</h2>
+                                <p class="card-description">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                    Nulla est
+                                    sint
+                                    aut
+                                    soluta doloremque odio voluptatum? Mollitia perferendis porro ipsam, odio, rerum est
+                                    provident
+                                    adipisci fuga voluptates quia nisi sequi!
+                                </p>
+                                <button class="card-button">Read More</button>
+                            </div>
+                        </div>
+                        <div class="card swiper-slide">
+                            <div class="image-content">
+                                <span class="card-overlay"></span>
+                                <div class="card-image">
+                                    <img src="images/princehome.png" alt="" class="card-img">
+                                </div>
+                            </div>
+                            <div class="card-content">
+                                <h2 class="card-name">Project Number 6</h2>
+                                <p class="card-description">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                    Nulla est
+                                    sint
+                                    aut
+                                    soluta doloremque odio voluptatum? Mollitia perferendis porro ipsam, odio, rerum est
+                                    provident
+                                    adipisci fuga voluptates quia nisi sequi!
+                                </p>
+                                <button class="card-button">Read More</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-button-prev swiper-navBtn"></div>
+                <div class="swiper-button-nex swiper-navBtn"></div>
+                <div class="swiper-pagination"></div>
+            </div>
+        </div>
+        <div id="portfolio-page">
+            <h2>Portfolio</h2>
+            <div class="projects">
+                <div class="project-1">
+                    <div class="proj-descr">
+                        <h3>Lorem ipsum dolor sit amet.</h3>
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit
+                            ipsam molestiae numquam accusantium nisi saepe?
+                        </p>
+                        <button>Read More</button>
+                    </div>
+                    <img src="./images/proj/easydesign.png" alt="project-pic-1" />
+                </div>
+                <div class="project-1">
+                    <img src="./images/proj/easydesign.png" alt="project-pic-1" />
+                    <div class="proj-descr">
+                        <h3>Lorem ipsum dolor sit amet.</h3>
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit
+                            ipsam molestiae numquam accusantium nisi saepe?
+                        </p>
+                        <button>Read More</button>
+                    </div>
+                </div>
+                <div class="project-1">
+                    <div class="proj-descr">
+                        <h3>Lorem ipsum dolor sit amet.</h3>
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit
+                            ipsam molestiae numquam accusantium nisi saepe?
+                        </p>
+                        <button>Read More</button>
+                    </div>
+                    <img src="./images/proj/blackinphoto.png" alt="project-pic-1" />
+                </div>
+            </div>
+        </div>
+        <div id="aboutpage">
+            <div class="about-container">
+                <div class="about-content">
+                    <h2 class="about-title">About me</h2>
+                    <p>I enjoy not only the work but the results as well, ranging from the satisfaction of seeing the
+                        finished product all the
+                        way to the satisfaction of knowing my work is ultimately helping someone somewhere. I look
+                        forward
+                        to finding work in a
+                        firm or company that cares not only about gain but also its positive impact on the world via
+                        clients, products, and
+                        employees.</p>
+                    <a href="http://" class="resume-link">Check my Resume</a>
+                </div>
+                <div class="about-image">
+                    <img src="images/me.jpg" alt="my about image" class="about-img">
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+    </footer>
+    <!-- <script src="js/main.js"></script> -->
+</body>
+<!-- swipper js script -->
+<script src="js/swiper-bundle.min.js"></script>
+<!-- main js script -->
+<script src="js/myswiper.js"></script>
+
 </html>
