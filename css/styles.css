@@ -58,8 +58,22 @@ header {
   list-style: none;
   list-style-position: inside;
   color: #fff;
-  font-size: 20px;
+  font-size: 16px;
   font-weight: 800;
+}
+
+.sidelinks,
+.logo_icon {
+  transition: 0.5s ease;
+}
+
+.sidelinks:hover {
+  transform: scale(2);
+}
+
+.logo_icon:hover {
+  transform: scale(1.5);
+  padding-left: 10px;
 }
 
 .navbutton {
