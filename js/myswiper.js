@@ -27,21 +27,53 @@ var swiper = new Swiper(".slide-content", {
         },
     }
 });
+AOS.init();
+// For Login an SignUp
+function toggleSignupForm() {
+    document.getElementById('login').classList.add('hidden');
+    document.getElementById('signup').classList.remove('hidden');
+}
 
-// For header
-const navButton = document.querySelector(".navbutton");
-const navDropdown = document.querySelector(".nav_links");
-
-navButton.addEventListener("click", () => {
-    navDropdown.classList.toggle("created");
-    console.log('buton clicked');
-});
-
-window.addEventListener("resize", function () {
-    if (window.innerWidth <= 768) {
-        navDropdown.classList.add("created");
-    } else if (window.innerWidth > 768) {
-        navDropdown.classList.remove("created");
+function toggleLoginForm() {
+    document.getElementById('signup').classList.add('hidden');
+    document.getElementById('login').classList.remove('hidden');
+}
+function validateSignup() {
+    var password = document.getElementById('signupPassword').value;
+    var passwordRepeat = document.getElementById('signup_confirm').value;
+    var passwordPattern = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*]).{8,}$/;
+    if (!passwordPattern.test(password)) {
+        alert('Password must contain at least 8 characters including at least one uppercase letter, one lowercase letter, one number, and one special character.');
+        return false;
+    } else if (password !== passwordRepeat) {
+        alert('Passwords missmatch, please enter same password!');
+        return false;
+    } else {
+        toggleLoginForm();
+        alert('Account successfuly created, login to access your data');
+        return true;
     }
+}
+function validateLogin() {
+    // Add your login validation logic here
+}
+
+// Nav hamburgerburger selections
+const burger = document.querySelector(".burger-menu");
+const ul = document.querySelector("nav ul");
+const nav = document.querySelector("nav");
+
+// Select nav links
+const navLink = document.querySelectorAll(".nav-link");
+
+// Hamburger menu function
+burger.addEventListener("click", () => {
+    ul.classList.toggle("show");
 });
-////////////////////////////
+
+// Close hamburger menu when a link is clicked
+navLink.forEach((link) =>
+    link.addEventListener("click", () => {
+        ul.classList.remove("show");
+    })
+);
