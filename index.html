@@ -5,48 +5,54 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="images/favicon.svg" type="image/x-icon">
+    <!-- for icons -->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
     <title>Prince NZAMUWE</title>
     <!-- styles for swipper -->
 
     <link rel="stylesheet" href="css/swiper-bundle.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <!-- main css style -->
     <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
 </head>
 
 <body>
-    <header>
-        <img src="./images/themify-logo-svgrepo-com.svg" alt="Logo image" class="logo_icon">
-        <ol class="nav_links" id="navlinks">
-            <a href="#homepage" class="sidelinks">
+    <nav data-aos="fade-left" data-aos-anchor="#example-anchor" data-aos-offset="500" data-aos-duration="500">
+        <img src="./images/Prince-Logo.png" alt="Logo image" class="logo_icon">
+        <ul class="navigation">
+            <a href="#homepage" class="nav-link">
                 <li>Home</li>
             </a>
-            <a href="#skillspage" class="sidelinks">
+            <a href="#skillspage" class="nav-link">
                 <li>Skills</li>
             </a>
-            <a href="#aboutpage" class="sidelinks">
+            <a href="#aboutpage" class="nav-link">
                 <li>About</li>
             </a>
-            <a href="#projpage" class="sidelinks">
+            <a href="#portfoliopage" class="nav-link">
                 <li>Portfolio</li>
             </a>
-            <a href="#contactpage" class="sidelinks">
+            <a href="#contactpage" class="nav-link">
                 <li>Contact</li>
             </a>
-            <a href="#blogspage" class="sidelinks">
+            <a href="#blogspage" class="nav-link">
                 <li>Blogs</li>
             </a>
-            <a href="#loginpage" class="sidelinks login">
+            <a href="#loginForm" class="nav-link nvlogin">
                 <li>Login</li>
             </a>
-            <a href="#signuppage" class="sidelinks signup">
+            <a href="#loginForm" class="nav-link nvsignup">
                 <li>Signup</li>
             </a>
-        </ol>
-        <img src="./images/cld-server-svgrepo-com.svg" alt="" class="navbutton">
-    </header>
+        </ul>
+        <img src="./images/cld-server-svgrepo-com.svg" alt="" class="burger-menu">
+    </nav>
     <main>
-        <div id="homepage">
+        <section id="homepage" data-aos="fade-down" data-aos-easing="linear" data-aos-duration="1500">
             <div class="leftside">
                 <h1 id="welcome">
                     Hello, my name is <span id="my-name">Prince NZAMUWE</span>
@@ -55,34 +61,57 @@
                     I'm an aspiring Software developer / engineer always working to build new skills and hone my
                     existing ones.
                 </p>
-                <div class="home-icons">
-                    <i class="bx bxl-facebook-circle"></i>
-                    <i class="bx bxl-instagram"></i>
-                    <i class="bx bxl-twitter"></i>
+                <div class="home-icons" data-aos="zoom-out-up">
+                    <a href="https://www.linkedin.com/in/princenzmw/" target="_blank"><i
+                            class="fa-brands fa-linkedin"></i></a>
+                    <a href="http://www.instagram.com/fudjiprinko146" target="_blank"><i
+                            class="bx bxl-instagram"></i></a>
+                    <a href="http://twitter.com/princenzmw" target="_blank"><i class="bx bxl-twitter"></i></a>
                 </div>
-                <div class="home-buttons">
-                    <a href="#" id="port">Portfolio</a>
-                    <a href="#" id="cont">Contact me</a>
+                <div class="home-buttons" data-aos="fade-up" data-aos-anchor-placement="bottom-bottom">
+                    <a href="#portfoliopage" id="port">Portfolio</a>
+                    <a href="#contactpage" id="cont">Contact </a>
                 </div>
             </div>
-            <div class="rightside">
+            <div class="rightside" data-aos="zoom-in-right">
                 <img src="images/princehome.png" alt="Home Picture" class="princehome" />
             </div>
-        </div>
-        <div id="projpage">
-            <h2 class="proj-swip-ttitle">Projects</h2>
+        </section>
+        <!-- Skills section -->
+        <section class="skills" id="skillspage">
+            <h2 class="skill-header" data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="2000">My
+                Technical Skills</h2>
+
+            <div class="skills-wrapper" data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="2000">
+                <div class="first-set animate__animated animate__pulse">
+                    <img src="images/icons/icons8-html-5.svg" alt="" loading="lazy" class="icon icon-card" />
+                    <img src="images/icons/icons8-css3.svg" alt="" loading="lazy" class="icon icon-card" />
+                    <img src="images/icons/icons8-javascript.svg" alt="" loading="lazy" class="icon icon-card" />
+                </div>
+
+                <div class="second-set animate__animated animate__pulse">
+                    <img src="images/icons/icons8-bootstrap.svg" alt="" loading="lazy" class="icon icon-card"
+                        data-aos="fade-up" data-aos-anchor-placement="top-center" />
+                    <img src="images/icons/icons8-react-native.svg" alt="" loading="lazy" class="icon icon-card" />
+                    <img src="images/icons/icons8-git.svg" alt="" loading="lazy" class="icon icon-card" />
+                </div>
+            </div>
+        </section>
+        <!-- Testimonials section -->
+        <section id="testimonials">
+            <h2 class="proj-swip-ttitle" data-aos="fade-up">Clients Testimonies</h2>
             <div class="slide-container swiper">
                 <div class="slide-content">
-                    <div class="card-wrapper swiper-wrapper">
+                    <div class="card-wrapper swiper-wrapper" data-aos="fade-down">
                         <div class="card swiper-slide">
                             <div class="image-content">
                                 <span class="card-overlay"></span>
                                 <div class="card-image">
-                                    <img src="images/princehome.png" alt="" class="card-img">
+                                    <img src="images/testimanials/testimanial14.jpg" alt="" class="card-img">
                                 </div>
                             </div>
-                            <div class="card-content">
-                                <h2 class="card-name">Project Number 1</h2>
+                            <div class="card-content" data-aos="fade-down-right">
+                                <h2 class="card-name">Jane Doe</h2>
                                 <p class="card-description">Lorem ipsum dolor sit amet consectetur adipisicing elit.
                                     Nulla est
                                     sint
@@ -91,18 +120,18 @@
                                     provident
                                     adipisci fuga voluptates quia nisi sequi!
                                 </p>
-                                <button class="card-button">Read More</button>
+                                <button class="card-button">View more</button>
                             </div>
                         </div>
                         <div class="card swiper-slide">
                             <div class="image-content">
                                 <span class="card-overlay"></span>
                                 <div class="card-image">
-                                    <img src="images/princehome.png" alt="" class="card-img">
+                                    <img src="images/testimanials/testimanial10.jpg" alt="" class="card-img">
                                 </div>
                             </div>
-                            <div class="card-content">
-                                <h2 class="card-name">Project Number 2</h2>
+                            <div class="card-content" data-aos="fade-down">
+                                <h2 class="card-name">John Smith</h2>
                                 <p class="card-description">Lorem ipsum dolor sit amet consectetur adipisicing elit.
                                     Nulla est
                                     sint
@@ -111,18 +140,18 @@
                                     provident
                                     adipisci fuga voluptates quia nisi sequi!
                                 </p>
-                                <button class="card-button">Read More</button>
+                                <button class="card-button">View more</button>
                             </div>
                         </div>
                         <div class="card swiper-slide">
                             <div class="image-content">
                                 <span class="card-overlay"></span>
                                 <div class="card-image">
-                                    <img src="images/princehome.png" alt="" class="card-img">
+                                    <img src="images/testimanials/testimanial12.jpg" alt="" class="card-img">
                                 </div>
                             </div>
-                            <div class="card-content">
-                                <h2 class="card-name">Project Number 3</h2>
+                            <div class="card-content" data-aos="fade-up-left">
+                                <h2 class="card-name">Priya Monroe</h2>
                                 <p class="card-description">Lorem ipsum dolor sit amet consectetur adipisicing elit.
                                     Nulla est
                                     sint
@@ -131,18 +160,18 @@
                                     provident
                                     adipisci fuga voluptates quia nisi sequi!
                                 </p>
-                                <button class="card-button">Read More</button>
+                                <button class="card-button">View more</button>
                             </div>
                         </div>
                         <div class="card swiper-slide">
                             <div class="image-content">
                                 <span class="card-overlay"></span>
                                 <div class="card-image">
-                                    <img src="images/princehome.png" alt="" class="card-img">
+                                    <img src="images/testimanials/testimanial5.jpg" alt="" class="card-img">
                                 </div>
                             </div>
                             <div class="card-content">
-                                <h2 class="card-name">Project Number 4</h2>
+                                <h2 class="card-name">Justin Muneza</h2>
                                 <p class="card-description">Lorem ipsum dolor sit amet consectetur adipisicing elit.
                                     Nulla est
                                     sint
@@ -151,18 +180,18 @@
                                     provident
                                     adipisci fuga voluptates quia nisi sequi!
                                 </p>
-                                <button class="card-button">Read More</button>
+                                <button class="card-button">View more</button>
                             </div>
                         </div>
                         <div class="card swiper-slide">
                             <div class="image-content">
                                 <span class="card-overlay"></span>
                                 <div class="card-image">
-                                    <img src="images/princehome.png" alt="" class="card-img">
+                                    <img src="images/testimanials/testimanial11.jpg" alt="" class="card-img">
                                 </div>
                             </div>
                             <div class="card-content">
-                                <h2 class="card-name">Project Number 5</h2>
+                                <h2 class="card-name">Rutayisire Jack</h2>
                                 <p class="card-description">Lorem ipsum dolor sit amet consectetur adipisicing elit.
                                     Nulla est
                                     sint
@@ -171,18 +200,18 @@
                                     provident
                                     adipisci fuga voluptates quia nisi sequi!
                                 </p>
-                                <button class="card-button">Read More</button>
+                                <button class="card-button">View more</button>
                             </div>
                         </div>
                         <div class="card swiper-slide">
                             <div class="image-content">
                                 <span class="card-overlay"></span>
                                 <div class="card-image">
-                                    <img src="images/princehome.png" alt="" class="card-img">
+                                    <img src="images/testimanials/testimanial2.jpg" alt="" class="card-img">
                                 </div>
                             </div>
                             <div class="card-content">
-                                <h2 class="card-name">Project Number 6</h2>
+                                <h2 class="card-name">Ange Umutesi</h2>
                                 <p class="card-description">Lorem ipsum dolor sit amet consectetur adipisicing elit.
                                     Nulla est
                                     sint
@@ -191,55 +220,194 @@
                                     provident
                                     adipisci fuga voluptates quia nisi sequi!
                                 </p>
-                                <button class="card-button">Read More</button>
+                                <button class="card-button">View more</button>
+                            </div>
+                        </div>
+                        <div class="card swiper-slide">
+                            <div class="image-content">
+                                <span class="card-overlay"></span>
+                                <div class="card-image">
+                                    <img src="images/testimanials/testimanial7.jpg" alt="" class="card-img">
+                                </div>
+                            </div>
+                            <div class="card-content">
+                                <h2 class="card-name">Pamela Akeza</h2>
+                                <p class="card-description">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                    Nulla est
+                                    sint
+                                    aut
+                                    soluta doloremque odio voluptatum? Mollitia perferendis porro ipsam, odio, rerum est
+                                    provident
+                                    adipisci fuga voluptates quia nisi sequi!
+                                </p>
+                                <button class="card-button">View more</button>
+                            </div>
+                        </div>
+                        <div class="card swiper-slide">
+                            <div class="image-content">
+                                <span class="card-overlay"></span>
+                                <div class="card-image">
+                                    <img src="images/testimanials/testimanial4.jpg" alt="" class="card-img">
+                                </div>
+                            </div>
+                            <div class="card-content">
+                                <h2 class="card-name">Raissa Bamurange</h2>
+                                <p class="card-description">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                    Nulla est
+                                    sint
+                                    aut
+                                    soluta doloremque odio voluptatum? Mollitia perferendis porro ipsam, odio, rerum est
+                                    provident
+                                    adipisci fuga voluptates quia nisi sequi!
+                                </p>
+                                <button class="card-button">View more</button>
+                            </div>
+                        </div>
+                        <div class="card swiper-slide">
+                            <div class="image-content">
+                                <span class="card-overlay"></span>
+                                <div class="card-image">
+                                    <img src="images/testimanials/testimanial6.jpg" alt="" class="card-img">
+                                </div>
+                            </div>
+                            <div class="card-content">
+                                <h2 class="card-name">Pascal Mutabazi</h2>
+                                <p class="card-description">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                    Nulla est
+                                    sint
+                                    aut
+                                    soluta doloremque odio voluptatum? Mollitia perferendis porro ipsam, odio, rerum est
+                                    provident
+                                    adipisci fuga voluptates quia nisi sequi!
+                                </p>
+                                <button class="card-button">View more</button>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="swiper-button-prev swiper-navBtn"></div>
-                <div class="swiper-button-nex swiper-navBtn"></div>
+                <div class="swiper-button-next swiper-navBtn"></div>
                 <div class="swiper-pagination"></div>
             </div>
-        </div>
-        <div id="portfolio-page">
-            <h2>Portfolio</h2>
+        </section>
+        <section id="portfoliopage" data-aos="zoom-out">
+            <h2 class="portf-title">Portfolio</h2>
             <div class="projects">
-                <div class="project-1">
-                    <div class="proj-descr">
-                        <h3>Lorem ipsum dolor sit amet.</h3>
+                <div class="project-1 project-done" data-aos="flip-left" data-aos-easing="ease-out-cubic"
+                    data-aos-duration="2000">
+                    <div class="proj-descr" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
+                        <h3>Programming made easy, Join my online courses for free.</h3>
                         <p>
                             Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit
                             ipsam molestiae numquam accusantium nisi saepe?
                         </p>
-                        <button>Read More</button>
+                        <button data-aos="zoom-out-up">Read More</button>
                     </div>
-                    <img src="./images/proj/easydesign.png" alt="project-pic-1" />
-                </div>
-                <div class="project-1">
-                    <img src="./images/proj/easydesign.png" alt="project-pic-1" />
-                    <div class="proj-descr">
-                        <h3>Lorem ipsum dolor sit amet.</h3>
-                        <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit
-                            ipsam molestiae numquam accusantium nisi saepe?
-                        </p>
-                        <button>Read More</button>
+                    <div class="proj-image" data-aos="fade-up" data-aos-anchor-placement="bottom-bottom">
+                        <img src="./images/proj/easydesign.png" alt="Project image" class="proj-img" />
                     </div>
                 </div>
-                <div class="project-1">
-                    <div class="proj-descr">
-                        <h3>Lorem ipsum dolor sit amet.</h3>
+                <div class="project-2 project-done">
+                    <div class="proj-image" data-aos="fade-up" data-aos-anchor-placement="bottom-bottom">
+                        <img src="./images/proj/workharder.png" alt="Project image" class="proj-img" />
+                    </div>
+                    <div class="proj-descr" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
+                        <h3>Work Harder, Nobody cares! They'll only care about you when you are able to provide
+                            something.</h3>
                         <p>
                             Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit
                             ipsam molestiae numquam accusantium nisi saepe?
                         </p>
-                        <button>Read More</button>
+                        <button data-aos="zoom-out-up">Read More</button>
                     </div>
-                    <img src="./images/proj/blackinphoto.png" alt="project-pic-1" />
+                </div>
+                <div class="project-3 project-done">
+                    <div class="proj-descr" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
+                        <h3>Keep trying and never give up on yourself.</h3>
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit
+                            ipsam molestiae numquam accusantium nisi saepe?
+                        </p>
+                        <button data-aos="zoom-out-up">Read More</button>
+                    </div>
+                    <div class="proj-image" data-aos="fade-up" data-aos-anchor-placement="bottom-bottom">
+                        <img src="./images/proj/blackinphoto.png" alt="Project image" class="proj-img" />
+                    </div>
                 </div>
             </div>
-        </div>
-        <div id="aboutpage">
+        </section>
+        <!-- Projects section -->
+        <section class="blogs" id="blogspage" data-aos="fade-down-left">
+            <h2 class="blogs-title">Check out my Latest Blogs</h2>
+            <div class="blogs-container">
+                <div class="blog-container blog-card" data-aos="fade-up" data-aos-duration="3000">
+                    <img src="images/blogs/blog1.jpeg" alt="expense-tracker" loading="lazy" class="blog-pic" />
+                    <h3 class="blog-title">Expand Your Connecion</h3>
+                    <p class="blog-details">
+                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quas
+                        ratione vel inventore labore commodi modi quos culpa aut saepe!
+                        Alias!
+                    </p>
+                    <a href="#" target="_blank" class="blog-link">READ FULL STORY</a>
+                </div>
+                <div class="blog-container blog-card" data-aos="fade-down" data-aos-easing="linear"
+                    data-aos-duration="1500">
+                    <img src="images/blogs/blog2.jpeg" alt="netflic-clone" loading="lazy" class="blog-pic" />
+                    <h3 class="blog-title">Explore the World Easily</h3>
+                    <p class="blog-details">
+                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quas
+                        ratione vel inventore labore commodi modi quos culpa aut saepe!
+                        Alias!
+                    </p>
+                    <a href="#" target="_blank" class="blog-link">READ FULL STORY</a>
+                </div>
+                <div class="blog-container blog-card" data-aos="fade-right" data-aos-offset="300"
+                    data-aos-easing="ease-in-sine">
+                    <img src="images/blogs/blog3.jpg" alt="greeny-earth" loading="lazy" class="blog-pic" />
+                    <h3 class="blog-title">Make your Resume stronger</h3>
+                    <p class="blog-details">
+                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quas
+                        ratione vel inventore labore commodi modi quos culpa aut saepe!
+                        Alias!
+                    </p>
+                    <a href="#" target="_blank" class="blog-link">READ FULL STORY</a>
+                </div>
+            </div>
+            <div class="blogs-container">
+                <div class="blog-container blog-card" data-aos="fade-left" data-aos-anchor="#example-anchor"
+                    data-aos-offset="500" data-aos-duration="500">
+                    <img src="images/blogs/blog4.png" alt="expense-tracker" loading="lazy" class="blog-pic" />
+                    <h3 class="blog-title">Economic Crisis</h3>
+                    <p class="blog-details">
+                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quas
+                        ratione vel inventore labore commodi modi quos culpa aut saepe!
+                        Alias!
+                    </p>
+                    <a href="#" target="_blank" class="blog-link">READ FULL STORY</a>
+                </div>
+                <div class="blog-container blog-card" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
+                    <img src="images/blogs/blog5.png" alt="netflic-clone" loading="lazy" class="blog-pic" />
+                    <h3 class="blog-title">Let's make the world better</h3>
+                    <p class="blog-details">
+                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quas
+                        ratione vel inventore labore commodi modi quos culpa aut saepe!
+                        Alias!
+                    </p>
+                    <a href="#" target="_blank" class="blog-link">READ FULL STORY</a>
+                </div>
+                <div class="blog-container blog-card" data-aos="fade-up" data-aos-anchor-placement="top-center">
+                    <img src="images/blogs/blog6.jpg" alt="greeny-earth" loading="lazy" class="blog-pic" />
+                    <h3 class="blog-title">Participate to my blogs</h3>
+                    <p class="blog-details">
+                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quas
+                        ratione vel inventore labore commodi modi quos culpa aut saepe!
+                        Alias!
+                    </p>
+                    <a href="#" target="_blank" class="blog-link">READ FULL STORY</a>
+                </div>
+            </div>
+        </section>
+        <section id="aboutpage" data-aos="zoom-in-right">
             <div class="about-container">
                 <div class="about-content">
                     <h2 class="about-title">About me</h2>
@@ -252,21 +420,184 @@
                         clients, products, and
                         employees.</p>
                     <a href="https://drive.google.com/file/d/1FSzWED1YIjE_6kwWz3DaUzyPhR2XHOwk/view?usp=drive_link"
-                        target="_blank" class="resume-link">Check my Resume</a>
+                        target="_blank" class="resume-link" data-aos="flip-left" data-aos-easing="ease-out-cubic"
+                        data-aos-duration="2000">Check my Resume</a>
                 </div>
                 <div class="about-image">
                     <img src="images/me.jpg" alt="my about image" class="about-img">
                 </div>
             </div>
-        </div>
+        </section>
+        <!-- CONTACT SECTION -->
+        <section id="contactpage" data-aos="flip-left">
+            <h2 class="contact__main_title">Contact me</h2>
+            <span class="contact__main_subtitle">Get in touch</span>
+
+            <div class="contact__container">
+                <div class="cont__left">
+                    <div class="contact__information">
+                        <img src="images/svgicons/phone-svgrepo-com.svg" alt="" class="contact__icon">
+
+                        <div>
+                            <h3 class="contact__title">Call me</h3>
+                            <span class="contatc__subtitle">(+250) 781712081</span>
+                        </div>
+                    </div>
+
+                    <div class="contact__information">
+                        <img src="images/svgicons/linkedin-svgrepo-com.svg" alt="" class="contact__icon">
+
+                        <div>
+                            <h3 class="contact__title">E-mail</h3>
+                            <span class="contatc__subtitle">princenzmw@gmail.com</span>
+                        </div>
+                    </div>
+
+                    <div class="contact__information">
+                        <img src="images/svgicons/location-marker-svgrepo-com.svg" alt="" class="contact__icon">
+
+                        <div>
+                            <h3 class="contact__title">My Location</h3>
+                            <span class="contatc__subtitle">Kigali, Rwanda</span>
+                        </div>
+                    </div>
+                </div>
+
+                <form action="" class="contact__form" name="contact_form">
+                    <div class="contact__inputs">
+                        <div class="contact__content">
+                            <label for="cont_name" class="contact__label">Name</label>
+                            <input type="text" id="cont_name" class="contact__input">
+                        </div>
+
+                        <div class="contact__content">
+                            <label for="cont_mail" class="contact__label">E-mail</label>
+                            <input type="email" id="cont_mail" class="contact__input">
+                        </div>
+                    </div>
+
+                    <div class="contact__content">
+                        <label for="cont_subj" class="contact__label">Subject</label>
+                        <input type="text" id="cont_subj" class="contact__input">
+                    </div>
+
+                    <div class="contact__content">
+                        <label for="cont_descrp" class="contact__label">Description</label>
+                        <textarea name="" id="cont_descrp" cols="0" rows="4" class="contact__input"></textarea>
+                    </div>
+
+                    <div>
+                        <a href="#" class="about__button" data-aos="flip-left" data-aos-easing="ease-out-cubic"
+                            data-aos-duration="2000">
+                            Send message
+                        </a>
+                    </div>
+                </form>
+            </div>
+        </section>
+        <section id="accounts">
+            <h2 class="log_title">Log in into your account or Register below:</h2>
+            <div id="loginForm" data-aos="fade-down-left">
+                <form id="login" class="account_forms">
+                    <input type="text" id="usernameEmailPhone" placeholder="Username/Email/Phone" required><br>
+                    <input type="password" id="loginPassword" placeholder="Password" required><br>
+                    <button type="submit" onclick="validateLogin()" class="logbtn"
+                        data-aos="zoom-in-down">Login</button>
+                    <div class="or-divider">OR</div>
+                    <button type="button" onclick="toggleSignupForm()" class="signbtn" data-aos="zoom-in-down">Sign
+                        Up</button>
+                </form>
+
+                <form id="signup" class="hidden account_forms">
+                    <input type="text" id="firstName" placeholder="First Name" required><br>
+                    <input type="text" id="lastName" placeholder="Last Name" required><br>
+                    <input type="email" id="email" placeholder="Email" required><br>
+                    <input type="tel" id="phone" placeholder="Phone Number" required><br>
+                    <input type="password" id="signupPassword" placeholder="Strong Password" required><br>
+                    <input type="password" id="signup_confirm" placeholder="Repeat Password" required><br>
+                    <button type="submit" onclick="validateSignup()" class="signbtn" data-aos="zoom-in-down">Sign
+                        Up</button>
+                    <div class="or-divider">OR</div>
+                    <button type="button" onclick="toggleLoginForm()" class="logbtn"
+                        data-aos="zoom-in-down">Login</button>
+                </form>
+                <div class="other-login-methods">
+                    <p>Or login with:</p>
+                    <a href="http://www.facebook.com/" target="_blank" data-aos="flip-left">Facebook</a> | <a
+                        href="http://www.gmail.com/" target="_blank" data-aos="flip-up">Google</a> | <a
+                        href="http://www.github.com/" target="_blank" data-aos="flip-right">Github</a>
+                </div>
+            </div>
+        </section>
     </main>
     <footer>
+        <section class="footer" id="footerpage" data-aos="fade-right" data-aos-offset="300"
+            data-aos-easing="ease-in-sine">
+            <div class="footer-row">
+                <div class="footer-col" data-aos="zoom-in-up">
+                    <h4>Info</h4>
+                    <ul class="links">
+                        <li><a href="#aboutpage">About Me</a></li>
+                        <li><a href="#contactpage">Contact Me</a></li>
+                        <li><a href="#testimonials">Customers</a></li>
+                        <li><a href="#skillspage">Service</a></li>
+                        <li><a href="#blogspage">Blogs</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col" data-aos="zoom-in-up">
+                    <h4>Explore</h4>
+                    <ul class="links">
+                        <li><a href="#blogspage">Top 10 Designs</a></li>
+                        <li><a href="#blogspage">Programming Languages</a></li>
+                        <li><a href="#blogspage">Frameworks</a></li>
+                        <li><a href="#blogspage">Trending Technologies</a></li>
+                        <li><a href="#skillspage">Art Skills</a></li>
+                        <li><a href="#blogspage">New Updates</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col" data-aos="zoom-in-up">
+                    <h4>Legal</h4>
+                    <ul class="links">
+                        <li><a href="./home.html" target="_blank">Customer Agreement</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">GDPR</a></li>
+                        <li><a href="#">Security</a></li>
+                        <li><a href="#testimonials">Testimonials</a></li>
+                        <li><a href="#">Physical Exercises</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col" data-aos="zoom-in-up">
+                    <h4>Newsletter</h4>
+                    <p>
+                        Subscribe to my newsletter for a weekly dose
+                        of news, updates, helpful tips, and
+                        exclusive offers.
+                    </p>
+                    <form action="#">
+                        <input type="email" placeholder="Your email" required>
+                        <button type="submit">SUBSCRIBE</button>
+                    </form>
+                    <div class="icons">
+                        <i class="fa-brands fa-facebook-f"></i>
+                        <i class="fa-brands fa-twitter"></i>
+                        <i class="fa-brands fa-linkedin"></i>
+                        <i class="fa-brands fa-github"></i>
+                    </div>
+                </div>
+                <p class="copyright">Copyright: &copy; Prince NZAMUWE 2024</p>
+            </div>
+
+        </section>
     </footer>
-    <!-- <script src="js/main.js"></script> -->
 </body>
 <!-- swipper js script -->
 <script src="js/swiper-bundle.min.js"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <!-- main js script -->
 <script src="js/myswiper.js"></script>
 
 </html>
+
