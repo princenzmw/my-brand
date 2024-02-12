@@ -1979,3 +1979,12 @@ a {
 .pblogs1-hover-border-pale-blue:hover {
     border-color: #e7ffff !important
 }
+
+.prinko_blog_tags {
+    cursor: pointer;
+}
+
+.prinko_blog_tags:hover {
+    background-color: #2196F3 !important;
+    color: #fff !important
+}
