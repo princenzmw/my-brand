@@ -6,29 +6,100 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
     <link rel="stylesheet" href="../../css/styles.css">
+    <link rel="stylesheet" href="dash.css">
+    <script src="https://kit.fontawesome.com/6e24aa161b.js" crossorigin="anonymous"></script>
+    <!-- <link rel="stylesheet" href="../blogs/bloghome.html"> -->
 </head>
 
 <body>
     <nav id="dashboard_navbar">
         <div class="dash_profile">
-            <img src="" alt="" class="dash_img">
+            <img src="../../images/prinko.png" alt="Dashboard Profile pic" class="dash_img">
         </div>
         <div class="dash_links">
-            <h2 class="dash_nav_links" id="dsh_blg">Blogs</h2>
-            <h2 class="dash_nav_links" id="dsh_prj">Projects</h2>
-            <h2 class="dash_nav_links" id="dsh_port">Portfolio</h2>
-            <h2 class="dash_nav_links" id="dsh_clnts">Clients</h2>
-            <h2 class="dash_nav_links" id="dsh_posts">Posts</h2>
-            <h2 class="dash_nav_links" id="dsh_comts">Comments</h2>
+            <h2 class="dash_nav_links" id="dsh_blg"><b><i class="fa-solid fa-blog"></i></b><span
+                    class="linkToShow">Blogs</span></h2>
+            <h2 class="dash_nav_links" id="dsh_prj"><b><i class="fa-solid fa-list-check"></i></b><span
+                    class="linkToShow">Projects</span>
+            </h2>
+            <h2 class="dash_nav_links" id="dsh_port"><b><i class="fa-solid fa-business-time"></i></b><span
+                    class="linkToShow">Portfolio</span></h2>
+            <h2 class="dash_nav_links" id="dsh_usrs"><b><i class="fa-solid fa-users"></i></b><span
+                    class="linkToShow">Users</span></h2>
+            <h2 class="dash_nav_links" id="dsh_posts"><b><i class="fa-solid fa-clone"></i></b><span
+                    class="linkToShow">Posts</span></h2>
+            <h2 class="dash_nav_links" id="dsh_comts"><b><i class="fa-solid fa-comments"></i></b><span
+                    class="linkToShow">Comments</span>
+            </h2>
         </div>
         <div class="dash_logout">
-            <h2 class="dash_nav_links" id="dsh_lgt">Logout</h2>
+            <h2 class="dash_nav_links" id="dsh_lgt"><span class="linkToShow">Logout</span><b><i
+                        class="fa-solid fa-right-from-bracket"></i></b></h2>
         </div>
     </nav>
-    <header class="dash_header"></header>
-    <div class="dashboard_container">
-        <p>Hello, World!</p>
-    </div>
+    <header class="dash_header">
+        <img src="../../images/Prince-Logo.png" alt=" a logo image">
+        <h3>Prince NZAMUWE</h3>
+        <span id="toggleNav"><i class="fa-solid fa-bars humberger"></i></span>
+    </header>
+    <main>
+        <div class="dashboard_container">
+            <div class="dash_top">
+                <div class="modes_toggle">
+                    <p class="togglingsidebar">
+                        <span class="tog_on"><i class="fa-solid fa-toggle-on"></i></span>
+                        <span class="tog_off"><i class="fa-solid fa-toggle-off"></i></span>
+                    </p>
+                    <h1 class="dash_big_title">Dashboard</h1>
+                    <p class="themes_changer">
+                        <span class="dark_thm"><i class="fa-solid fa-moon"></i></i></span>
+                        <span class="light_thm"><i class="fa-solid fa-sun"></i></i></span>
+                    </p>
+                </div>
+                <div class="dash_overview">
+                    <div class="statistics one">
+                        <b><i class="fa-solid fa-users-between-lines"></i></b>
+                        <h2>Users</h2>
+                        <h3>246</h3>
+                    </div>
+                    <div class="statistics one">
+                        <b><i class="fa-solid fa-envelopes-bulk"></i></b>
+                        <h2>Post</h2>
+                        <h3>246</h3>
+                    </div>
+                    <div class="statistics one">
+                        <b><i class="fa-solid fa-comment-dots"></i></b>
+                        <h2>Comments</h2>
+                        <h3>246</h3>
+                    </div>
+                    <div class="statistics one">
+                        <b><i class="fa-solid fa-message"></i></b>
+                        <h2>Messages</h2>
+                        <h3>246</h3>
+                    </div>
+                </div>
+            </div>
+            <p>Hello, World!</p>
+
+            Tempora commodi, error
+            repellat dolore adipisci quia. Placeat ipsam possimus magni vero, ratione neque illum, nulla omnis sint
+            aspernatur ea provident tempore exercitationem nesciunt atque inventore! Voluptate, dolor esse officia
+            quidem temporibus obcaecati unde tempore nemo dolorum iusto excepturi aliquam optio doloribus, sapiente vel
+            accusamus dolore eius laborum! Sint voluptatibus vero laborum doloremque enim dolores deserunt? Incidunt
+            laborum possimus culpa soluta unde architecto rem, quaerat laudantium! Blanditiis enim quam, voluptatibus
+            molestiae quas laborum totam nostrum est soluta quia minus distinctio aut, sequi beatae debitis eligendi
+            veritatis facere minima ea! Odio recusandae laudantium aliquid beatae voluptatem, necessitatibus maiores
+            consectetur quasi iste esse porro fugit aliquam ex.
+        </div>
+        <div class="dumbtest"></div>
+        <div id="blogContainer"></div>
+        <div id="portfolioContainer"></div>
+        <div id="projectContainer"></div>
+        <div id="usersContainer"></div>
+        <div id="postContainer"></div>
+        <div id="commentContainer"></div>
+    </main>
+    <script src="dash.js"></script>
 </body>
 
 </html>
