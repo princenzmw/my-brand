@@ -66,8 +66,6 @@ signupForm.addEventListener('submit', (event) => {
     loginPage.style.display = 'flex';
     window.location.href = 'form.html?#acountloginpage';
     loginPage.style.display = 'flex';
-    // const dumbMessage = 'form.html?#acountloginpage';
-    console.log(`${window.location.href = 'form.html?#acountloginpage'}`);
 })
 
 const checkSignupInputs = () => {
