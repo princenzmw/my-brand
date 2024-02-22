@@ -1,0 +1,202 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+}
+
+li {
+    list-style: none;
+}
+
+.accounts_signup_form {
+    padding: 0 20px;
+    background-color: #e0dfdf;
+    width: 400px;
+}
+
+.accounts_login_form,
+.accounts_recover_form {
+    padding: 2rem 2rem;
+    background-color: #e0dfdf;
+    width: 400px;
+}
+
+#loginform,
+#signupform,
+#recoveryform {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+}
+
+#legendlog,
+#legendsign,
+#legendrec {
+    text-align: center;
+    padding: 10px;
+    border: 2px solid #133cc2;
+    font-size: 18px;
+    font-weight: 800;
+    background-color: #e0dfdf;
+    border-radius: 10px;
+}
+
+#legendlog {
+    border: 2px solid #06914b;
+}
+
+#legendrec {
+    border: 2px solid #d10ad1;
+}
+
+.form_div {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+label {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+input {
+    font-size: 14px;
+    padding: 5px 0;
+    padding-left: 25px;
+}
+
+.form_div {
+    position: relative;
+    margin-bottom: 5px;
+}
+
+#input_icon {
+    position: absolute;
+    top: 25px;
+    left: 5px;
+}
+
+.goodInput,
+.badInput {
+    position: absolute;
+    top: 25px;
+    right: 5px;
+    visibility: hidden;
+}
+
+.errmsg {
+    visibility: hidden;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.form_div.success input {
+    border-color: #2ecc71;
+}
+
+.form_div.error input {
+    border-color: #e74c3c;
+}
+
+.form_div.success .goodInput {
+    color: #2ecc71;
+    visibility: visible;
+}
+
+.form_div.error .badInput {
+    color: #e74c3c;
+    visibility: visible;
+}
+
+.form_div.success .errmsg {
+    color: #2ecc71;
+    visibility: hidden;
+}
+
+.form_div.error .errmsg {
+    color: #e74c3c;
+    visibility: visible;
+}
+
+#signbtn,
+#loginbtn,
+#recoverbtn {
+    padding: 8px 15px;
+    background-color: #4040ee;
+    color: #fff;
+    font-size: 24px;
+    border: none;
+    border-radius: 10px;
+    align-self: center;
+    cursor: pointer;
+}
+
+#loginbtn {
+    background-color: #06914b;
+}
+
+.remeber_forget {
+    display: flex;
+    justify-content: space-between;
+}
+
+.no_ccount {
+    align-self: center;
+}
+
+.forgot_pass:hover,
+.go_to_signup:hover {
+    text-decoration: underline;
+}
+
+.other_accounts {
+    display: flex;
+    justify-content: space-around
+}
+
+.other_accounts span {
+    display: flex;
+    flex-direction: column;
+}
+
+.google .fa-google {
+    color: #06914b;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.github .fa-github {
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.facebook .fa-facebook {
+    color: #3e3ecc;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+#acountsignuppage,
+#acountloginpage,
+#acountrecoverypage {
+    position: fixed;
+    z-index: 100000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
