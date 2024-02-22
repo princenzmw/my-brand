@@ -14,6 +14,7 @@
 
     <link rel="stylesheet" href="css/swiper-bundle.min.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/formstyles.css">
     <!-- main css style -->
     <link rel="stylesheet" href="css/styles.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
@@ -502,37 +503,171 @@
         </section>
         <!-- Accounts Login & Signup SECTION -->
         <section id="accounts">
-            <h2 class="log_title">Log in into your account or Register below:</h2>
-            <div id="loginForm" data-aos="fade-down-left">
-                <form id="login" class="account_forms">
-                    <input type="text" id="usernameEmailPhone" placeholder="Username/Email/Phone" required><br>
-                    <input type="password" id="loginPassword" placeholder="Password" required><br>
-                    <button type="submit" onclick="validateLogin()" class="logbtn"
-                        data-aos="zoom-in-down">Login</button>
-                    <div class="or-divider">OR</div>
-                    <button type="button" onclick="toggleSignupForm()" class="signbtn" data-aos="zoom-in-down">Sign
-                        Up</button>
-                </form>
-
-                <form id="signup" class="hidden account_forms">
-                    <input type="text" id="firstName" placeholder="First Name" required><br>
-                    <input type="text" id="lastName" placeholder="Last Name" required><br>
-                    <input type="email" id="email" placeholder="Email" required><br>
-                    <input type="tel" id="phone" placeholder="Phone Number" required><br>
-                    <input type="password" id="signupPassword" placeholder="Strong Password" required><br>
-                    <input type="password" id="signup_confirm" placeholder="Repeat Password" required><br>
-                    <button type="submit" onclick="validateSignup()" class="signbtn" data-aos="zoom-in-down">Sign
-                        Up</button>
-                    <div class="or-divider">OR</div>
-                    <button type="button" onclick="toggleLoginForm()" class="logbtn"
-                        data-aos="zoom-in-down">Login</button>
-                </form>
-                <div class="other-login-methods">
-                    <p>Or login with:</p>
-                    <a href="http://www.facebook.com/" target="_blank" data-aos="flip-left">Facebook</a> | <a
-                        href="http://www.gmail.com/" target="_blank" data-aos="flip-up">Google</a> | <a
-                        href="http://www.github.com/" target="_blank" data-aos="flip-right">Github</a>
-                </div>
+            <div id="acountsignuppage">
+                <fieldset class="accounts_signup_form">
+                    <legend id="legendsign">SIGNUP FORM</legend>
+                    <form id="signupform">
+                        <div class="form_div">
+                            <label for="firstnm">First Name: </label>
+                            <input type="text" name="fist_name" id="firstnm" placeholder="FIRST NAME">
+                            <span id="input_icon"><i class="fa-regular fa-circle-user"></i></span>
+                            <i class="fa-solid fa-circle-info badInput"></i>
+                            <i class="fa-solid fa-circle-check goodInput"></i>
+                            <small class="errmsg">Name must contain no number or space</small>
+                        </div>
+                        <div class="form_div">
+                            <label for="lastnm">Last Name: </label>
+                            <input type="text" name="last_name" id="lastnm" placeholder="LAST NAME">
+                            <span id="input_icon"><i class="fa-solid fa-user"></i></span>
+                            <i class="fa-solid fa-circle-info badInput"></i>
+                            <i class="fa-solid fa-circle-check goodInput"></i>
+                            <small class="errmsg">Name must contain no number or space</small>
+                        </div>
+                        <div class="form_div">
+                            <label for="usernm">Username: </label>
+                            <input type="text" name="username" id="usernm" placeholder="USERNAME">
+                            <span id="input_icon"><i class="fa-regular fa-id-card"></i></span>
+                            <i class="fa-solid fa-circle-info badInput"></i>
+                            <i class="fa-solid fa-circle-check goodInput"></i>
+                            <small class="errmsg">Enter a valid username</small>
+                        </div>
+                        <div class="form_div">
+                            <label for="sgnemail">Email Address: </label>
+                            <input type="text" name="email" id="sgnemail" placeholder="example.email.com">
+                            <span id="input_icon"><i class="fa-solid fa-at"></i></span>
+                            <i class="fa-solid fa-circle-info badInput"></i>
+                            <i class="fa-solid fa-circle-check goodInput"></i>
+                            <small class="errmsg">invalid Email address</small>
+                        </div>
+                        <div class="form_div">
+                            <label for="phonenbr">Phone Number: </label>
+                            <input type="text" name="phone" id="phonenbr" placeholder="+250781712081">
+                            <span id="input_icon"><i class="fa-solid fa-square-phone"></i></span>
+                            <i class="fa-solid fa-circle-info badInput"></i>
+                            <i class="fa-solid fa-circle-check goodInput"></i>
+                            <small class="errmsg">invalid Phone number</small>
+                        </div>
+                        <div class="form_div">
+                            <label for="regpasswd">Password: </label>
+                            <input type="text" name="password" id="regpasswd" placeholder="PASSWORD">
+                            <span id="input_icon"><i class="fa-solid fa-key"></i></span>
+                            <i class="fa-solid fa-circle-info badInput"></i>
+                            <i class="fa-solid fa-circle-check goodInput"></i>
+                            <small class="errmsg">Password not must be strong</small>
+                        </div>
+                        <div class="form_div">
+                            <label for="regpasswd2">Repeat Password: </label>
+                            <input type="text" name="password2" id="regpasswd2" placeholder="CONFIRM PASSWORD">
+                            <span id="input_icon"><i class="fa-solid fa-lock-open"></i></span>
+                            <i class="fa-solid fa-circle-info badInput"></i>
+                            <i class="fa-solid fa-circle-check goodInput"></i>
+                            <small class="errmsg">Password don't match</small>
+                        </div>
+                        <button type="submit" id="signbtn">REGISTER</button>
+                        <p class="no_ccount">Already have an account? <a href="#acountloginpage"
+                                class="go_to_login">Login</a>
+                        </p>
+                        <p class="other_accounts">
+                            <span class="google"><i class="fa-brands fa-google"></i><a
+                                    href="https://mail.google.com/">Google</a></span>
+                            <span class="github"><i class="fa-brands fa-github"></i><a
+                                    href="https://github.com/">Github</a></span>
+                            <span class="facebook"><i class="fa-brands fa-facebook"></i><a
+                                    href="https://www.facebook.com/">Facebook</a></span>
+                        </p>
+                    </form>
+                </fieldset>
+            </div>
+            <div id="acountloginpage">
+                <fieldset class="accounts_login_form">
+                    <legend id="legendlog">LOGIN FORM</legend>
+                    <form method="post" id="loginform">
+                        <div class="form_div">
+                            <label for="logusr">Username: </label>
+                            <input type="text" name="username_log" id="logusr" placeholder="USERNAME">
+                            <span id="input_icon"><i class="fa-regular fa-id-card"></i></span>
+                            <i class="fa-solid fa-circle-info badInput"></i>
+                            <i class="fa-solid fa-circle-check goodInput"></i>
+                            <small class="errmsg">Incorrect Username</small>
+                        </div>
+                        <div class="form_div">
+                            <label for="logpswd">Password: </label>
+                            <input type="text" name="password_log" id="logpswd" placeholder="PASSWORD">
+                            <span id="input_icon"><i class="fa-solid fa-key"></i></span>
+                            <i class="fa-solid fa-circle-info badInput"></i>
+                            <i class="fa-solid fa-circle-check goodInput"></i>
+                            <small class="errmsg">Incorrect password</small>
+                        </div>
+                        <div class="remeber_forget">
+                            <div class="remember_me_div">
+                                <input type="checkbox" name="remember_check" id="remember_check">
+                                <label for="remember_check">Remember me</label>
+                            </div>
+                            <a href="#acountrecoverypage" class="forgot_pass">Forgot Password?</a>
+                        </div>
+                        <button type="submit" id="loginbtn">Login</button>
+                        <p class="no_ccount">Don't have an account? <a href="#acountsignuppage"
+                                class="go_to_signup">Signup</a>
+                        </p>
+                        <p class="other_accounts">
+                            <span class="google"><i class="fa-brands fa-google"></i><a
+                                    href="https://mail.google.com/">Google</a></span>
+                            <span class="github"><i class="fa-brands fa-github"></i><a
+                                    href="https://github.com/">Github</a></span>
+                            <span class="facebook"><i class="fa-brands fa-facebook"></i><a
+                                    href="https://www.facebook.com/">Facebook</a></span>
+                        </p>
+                    </form>
+                </fieldset>
+            </div>
+            <div id="acountrecoverypage">
+                <fieldset class="accounts_recover_form">
+                    <legend id="legendrec">ACCOUNT RECOVERY</legend>
+                    <form method="post" id="recoveryform">
+                        <div class="form_div">
+                            <label for="recusr">Username: </label>
+                            <input type="text" name="username_log" id="recusr" placeholder="USERNAME">
+                            <span id="input_icon"><i class="fa-regular fa-id-card"></i></span>
+                            <i class="fa-solid fa-circle-info badInput"></i>
+                            <i class="fa-solid fa-circle-check goodInput"></i>
+                            <small class="errmsg">Error message</small>
+                        </div>
+                        <div class="form_div">
+                            <label for="recpswd">New Password: </label>
+                            <input type="text" name="password_log" id="recpswd" placeholder="PASSWORD">
+                            <span id="input_icon"><i class="fa-solid fa-key"></i></span>
+                            <i class="fa-solid fa-circle-info badInput"></i>
+                            <i class="fa-solid fa-circle-check goodInput"></i>
+                            <small class="errmsg">Password not must be strong</small>
+                        </div>
+                        <div class="form_div">
+                            <label for="recpswdrpt">Repeat Password: </label>
+                            <input type="text" name="password_log" id="recpswdrpt" placeholder="CONFIRM PASSWORD">
+                            <span id="input_icon"><i class="fa-solid fa-lock-open"></i></span>
+                            <i class="fa-solid fa-circle-info badInput"></i>
+                            <i class="fa-solid fa-circle-check goodInput"></i>
+                            <small class="errmsg">Password don't match</small>
+                        </div>
+                        <div class="remeber_forget">
+                            <div class="remember_me_div">
+                                <input type="checkbox" name="remember_check" id="remember_check">
+                                <label for="keep_me_check">Keep me logged in</label>
+                            </div>
+                            <a href="#acountloginpage" class="back_to_login">Login</a>
+                        </div>
+                        <button type="submit" id="recoverbtn">RECOVER</button>
+                        <p class="no_ccount">Don't have an account? <a href="#acountsignuppage"
+                                class="back_to_signup">Signup</a>
+                        <p class="other_accounts">
+                            <span class="google"><i class="fa-brands fa-google"></i><a
+                                    href="https://mail.google.com/">Google</a></span>
+                            <span class="github"><i class="fa-brands fa-github"></i><a
+                                    href="https://github.com/">Github</a></span>
+                            <span class="facebook"><i class="fa-brands fa-facebook"></i><a
+                                    href="https://www.facebook.com/">Facebook</a></span>
+                        </p>
+                    </form>
+                </fieldset>
             </div>
         </section>
     </main>
@@ -604,5 +739,6 @@
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <!-- main js script -->
 <script src="js/myswiper.js"></script>
+<script src="js/formscript.js"></script>
 
 </html>
