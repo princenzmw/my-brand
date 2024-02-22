@@ -1006,72 +1006,7 @@ nav ul li {
 
 /* Login and Signup styles*/
 #accounts {
-  min-height: 100vh;
-  border-top: 1px solid #10182F;
-  border-bottom: 1px solid #10182F;
-}
-
-.account_forms {
-  max-width: 300px;
-  margin: 20px auto;
-  padding: 20px;
-  background-color: #fff;
-  border-radius: 5px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.account_forms>input,
-.account_forms>button {
   width: 100%;
-  margin-bottom: 10px;
-  padding: 10px;
-  box-sizing: border-box;
-}
-
-.account_forms>button {
-  background-color: #333;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.logbtn:hover {
-  background-color: #0056b3;
-}
-
-.or-divider {
-  text-align: center;
-  margin: 10px 0;
-}
-
-.or-divider::before,
-.or-divider::after {
-  content: "";
-  display: inline-block;
-  height: 1px;
-  background-color: #ccc;
-  width: 45%;
-  vertical-align: middle;
-}
-
-.hidden {
-  display: none;
-}
-
-.other-login-methods {
-  margin-top: 20px;
-  text-align: center;
-}
-
-.other-login-methods a {
-  color: #007bff;
-  text-decoration: none;
-}
-
-.log_title {
-  text-align: center;
-  margin: 20px auto;
 }
 
 /*end styles for accounts*/
