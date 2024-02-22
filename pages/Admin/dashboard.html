@@ -6,8 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
     <link rel="stylesheet" href="../../css/styles.css">
-    <link rel="stylesheet" href="dash.css">
+    <link rel="stylesheet" href="../../css/dashboard/admindash.css">
+    <link rel="stylesheet" href="../../css/dashboard/users.css">
     <script src="https://kit.fontawesome.com/6e24aa161b.js" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!--CDN for icons from Bootstrap 5-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <!-- <link rel="stylesheet" href="../blogs/bloghome.html"> -->
 </head>
 
@@ -43,7 +48,7 @@
         <span id="toggleNav"><i class="fa-solid fa-bars humberger"></i></span>
     </header>
     <main>
-        <div class="dashboard_container">
+        <div id="dashboard_container">
             <div class="dash_top">
                 <div class="modes_toggle">
                     <p class="togglingsidebar">
@@ -60,12 +65,12 @@
                     <div class="statistics one">
                         <b><i class="fa-solid fa-users-between-lines"></i></b>
                         <h2>Users</h2>
-                        <h3>246</h3>
+                        <h3>46</h3>
                     </div>
                     <div class="statistics one">
                         <b><i class="fa-solid fa-envelopes-bulk"></i></b>
                         <h2>Post</h2>
-                        <h3>246</h3>
+                        <h3>14</h3>
                     </div>
                     <div class="statistics one">
                         <b><i class="fa-solid fa-comment-dots"></i></b>
@@ -75,31 +80,227 @@
                     <div class="statistics one">
                         <b><i class="fa-solid fa-message"></i></b>
                         <h2>Messages</h2>
-                        <h3>246</h3>
+                        <h3>146</h3>
                     </div>
                 </div>
             </div>
-            <p>Hello, World!</p>
-
-            Tempora commodi, error
-            repellat dolore adipisci quia. Placeat ipsam possimus magni vero, ratione neque illum, nulla omnis sint
-            aspernatur ea provident tempore exercitationem nesciunt atque inventore! Voluptate, dolor esse officia
-            quidem temporibus obcaecati unde tempore nemo dolorum iusto excepturi aliquam optio doloribus, sapiente vel
-            accusamus dolore eius laborum! Sint voluptatibus vero laborum doloremque enim dolores deserunt? Incidunt
-            laborum possimus culpa soluta unde architecto rem, quaerat laudantium! Blanditiis enim quam, voluptatibus
-            molestiae quas laborum totam nostrum est soluta quia minus distinctio aut, sequi beatae debitis eligendi
-            veritatis facere minima ea! Odio recusandae laudantium aliquid beatae voluptatem, necessitatibus maiores
-            consectetur quasi iste esse porro fugit aliquam ex.
         </div>
-        <div class="dumbtest"></div>
-        <div id="blogContainer"></div>
-        <div id="portfolioContainer"></div>
-        <div id="projectContainer"></div>
-        <div id="usersContainer"></div>
-        <div id="postContainer"></div>
-        <div id="commentContainer"></div>
+        <div id="renderedDataContainer">
+            <div id="returnContainer">
+                <div id="blogContainer">
+                    <div class="existingBlogs">
+                        <h2 class="titlesblogs">Blogs</h2>
+                        <h2 id="blogadder">Add New blog <b><i class="fa-solid fa-circle-plus"></i></b></h2>
+                    </div>
+                    <div class="available_blog">
+                        <!-- <div class="av_blog_div">
+                    </div> -->
+                    </div>
+                </div>
+                <div class="addingBlog">
+                    <form action="" method="post" id="new_blog_div">
+                        <div id="formClose"><i class="fa-regular fa-circle-xmark"></i></div>
+                        <div class="blgaddv">
+                            <label for="new_blog_image">Photo:</label>
+                            <input type="file" name="blog_image" id="new_blog_image" accept="image/*">
+                        </div>
+                        <div class="blgaddv">
+                            <label for="new_blog_ttle">Title:</label>
+                            <input type="text" name="blog_title" id="new_blog_ttle" required>
+                        </div>
+                        <div class="blgaddv">
+                            <label for="new_blog_bdy">Description:</label>
+                            <textarea name="blog_body" id="new_blog_bdy" rows="4" required></textarea>
+                        </div>
+                        <div class="blgaddv">
+                            <button type="submit" id="blg_sbmt_btn">Add Blog</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="edittingBlog">
+                    <div id="av_blog_delete_msg">
+                        <div class="del_confirmation_btns">
+                            <p>Are You sure you want to delete this blog?</p>
+                            <button id="av_blg_del_cancelBtn">No</button>
+                            <button id="av_blg_del_confirmBtn">Yes</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="portfolioContainer"></div>
+            <div id="projectContainer"></div>
+            <div id="usersContainer">
+                <section class="p-3">
+
+                    <div class="row">
+                        <div class="col-12">
+                            <button class="btn btn-primary newUser" data-bs-toggle="modal"
+                                data-bs-target="#userForm">Add User <i class="bi bi-people"></i></button>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-12">
+                            <table class="table table-striped table-hover mt-3 text-center table-bordered">
+
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Picture</th>
+                                        <th>First Name</th>
+                                        <th>Last Name</th>
+                                        <th>Username</th>
+                                        <th>Email</th>
+                                        <th>Phone</th>
+                                        <th>Role</th>
+                                        <th>Date Created</th>
+                                        <th>Action Buttons</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody id="data"></tbody>
+
+                            </table>
+                        </div>
+                    </div>
+
+                </section>
+
+                <!--Modal Form-->
+                <div class="modal fade" id="userForm">
+                    <div class="modal-dialog modal-dialog-centered modal-lg">
+                        <div class="modal-content">
+
+                            <div class="modal-header">
+                                <h4 class="modal-title">Fill the Form below</h4>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+
+                            <div class="modal-body">
+
+                                <form action="#" id="myForm">
+
+                                    <div class="card imgholder">
+                                        <label for="imgInput" class="upload">
+                                            <input type="file" name="" id="imgInput">
+                                            <i class="bi bi-plus-circle-dotted"></i>
+                                        </label>
+                                        <img src="../../images/ProfileIcon.webp" alt="" width="200" height="200"
+                                            class="img">
+                                    </div>
+
+                                    <div class="inputField">
+                                        <div>
+                                            <label for="name">First Name:</label>
+                                            <input type="text" name="" id="name" required>
+                                        </div>
+                                        <div>
+                                            <label for="age">Last Name:</label>
+                                            <input type="text" name="" id="age" required>
+                                        </div>
+                                        <div>
+                                            <label for="city">Username</label>
+                                            <input type="text" name="" id="city" required>
+                                        </div>
+                                        <div>
+                                            <label for="email">E-mail:</label>
+                                            <input type="email" name="" id="email" required>
+                                        </div>
+                                        <div>
+                                            <label for="phone">Phone:</label>
+                                            <input type="text" name="" id="phone" minlength="10" maxlength="13"
+                                                required>
+                                        </div>
+                                        <div>
+                                            <label for="post">Role:</label>
+                                            <input type="text" name="" id="post" required>
+                                        </div>
+                                        <div>
+                                            <label for="sDate">Date Created:</label>
+                                            <input type="date" name="" id="sDate" required>
+                                        </div>
+                                    </div>
+
+                                </form>
+                            </div>
+
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <button type="submit" form="myForm" class="btn btn-primary submit">Submit</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!--Read Data Modal-->
+                <div class="modal fade" id="readData">
+                    <div class="modal-dialog modal-dialog-centered modal-lg">
+                        <div class="modal-content">
+
+                            <div class="modal-header">
+                                <h4 class="modal-title">Profile</h4>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+
+                            <div class="modal-body">
+
+                                <form action="#" id="myForm">
+
+                                    <div class="card imgholder">
+                                        <img src="../../images/ProfileIcon.webp" alt="" width="200" height="200"
+                                            class="showImg">
+                                    </div>
+
+                                    <div class="inputField">
+                                        <div>
+                                            <label for="name">First Name:</label>
+                                            <input type="text" name="" id="showName" disabled>
+                                        </div>
+                                        <div>
+                                            <label for="age">Last Name</label>
+                                            <input type="text" name="" id="showAge" disabled>
+                                        </div>
+                                        <div>
+                                            <label for="city">Username:</label>
+                                            <input type="text" name="" id="showCity" disabled>
+                                        </div>
+                                        <div>
+                                            <label for="email">E-mail:</label>
+                                            <input type="email" name="" id="showEmail" disabled>
+                                        </div>
+                                        <div>
+                                            <label for="phone">Phone</label>
+                                            <input type="text" name="" id="showPhone" minlength="10" maxlength="13"
+                                                disabled>
+                                        </div>
+                                        <div>
+                                            <label for="post">Role:</label>
+                                            <input type="text" name="" id="showPost" disabled>
+                                        </div>
+                                        <div>
+                                            <label for="sDate">Created:</label>
+                                            <input type="date" name="" id="showsDate" disabled>
+                                        </div>
+                                    </div>
+
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="postContainer"></div>
+            <div id="commentContainer"></div>
+        </div>
     </main>
-    <script src="dash.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+
+    <script src="../../js/dashboard/user.js"></script>
+    <script src="../../js/dashboard/admindash.js"></script>
 </body>
 
 </html>
