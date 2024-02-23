@@ -262,40 +262,59 @@ logoutLink.addEventListener('click', () => {
  * Get the user's messages
  */
 
-messagesLink.addEventListener('click', () => {
-    displayMessages(messages);
-    usersContainerDiv.style.display = 'none';
-    blogsContainerDiv.style.display = 'none';
-    messageContainer.style.display = 'block';
-})
-
 let messages = JSON.parse(localStorage.getItem('contactMessages')) || [];
 
 function displayMessages(messages) {
+    const addedmessages = document.getElementById('addedmessages');
+    addedmessages.innerHTML = '';
 
-    messageContainer.innerHTML = '';
+    // Reverse the messages array to display the latest messages first
+    messages.reverse();
 
-    messages.forEach(message => {
-        // Create a div element to hold the message
+    messages.forEach((message, index) => {
         const messageDiv = document.createElement('div');
         messageDiv.classList.add('message');
 
-        // Create HTML content for the message
         const messageHTML = `
+            <div class="msg_head_div">
+                <div class="contact__pic">
+                    <img src="../../images/ProfileIcon.webp" alt="Contact avatar">
+                </div>
+                <div class="contact_nm_mail">
+                    <h4>Name: ${message.name}</h4>
+                    <h6>Email: ${message.email}</h6>
+                </div>
+            </div>
             <div>
-                <h3>Name: ${message.name}</h3>
-                <p>Email: ${message.email}</p>
                 <p>Title: ${message.title}</p>
-                <p>Body: ${message.body}</p>
-                <div style="display: flex; gap: 10px;">
+                <p>Body: <br> <em>${message.body}</em></p>
+                <div class="cont_msg_btns" style="display: flex; gap: 10px;">
+                    <p class="msg__date">Date: ${message.sentAt}</p>
+                    <button style="background-color: #1a551a;"">View</button>
                     <button>Reply</button>
-                    <button style="background-color: #ff0000;">Delete</button>
+                    <button style="background-color: #ff0000;" onclick="deleteMessage(${index})">Delete</button>
                 </div>
             </div>
         `;
 
         messageDiv.innerHTML = messageHTML;
 
-        messageContainer.appendChild(messageDiv);
+        addedmessages.appendChild(messageDiv);
     });
 }
+
+function deleteMessage(index) {
+    messages.splice(index, 1);
+    localStorage.setItem('contactMessages', JSON.stringify(messages));
+    displayMessages(messages);
+}
+
+/**
+ * Show the messages in the dashboard
+ */
+messagesLink.addEventListener('click', () => {
+    displayMessages(messages);
+    usersContainerDiv.style.display = 'none';
+    blogsContainerDiv.style.display = 'none';
+    messageContainer.style.display = 'block';
+})
