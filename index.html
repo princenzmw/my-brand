@@ -18,6 +18,7 @@
     <!-- main css style -->
     <link rel="stylesheet" href="css/styles.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js"></script>
 
 </head>
 
@@ -25,33 +26,16 @@
     <nav data-aos="fade-left" data-aos-anchor="#example-anchor" data-aos-offset="500" data-aos-duration="500">
         <img src="./images/Prince-Logo.png" alt="Logo image" class="logo_icon">
         <ul class="navigation">
-            <a href="#homepage" class="nav-link">
-                <li>Home</li>
-            </a>
-            <a href="#skillspage" class="nav-link">
-                <li>Skills</li>
-            </a>
-            <a href="#portfoliopage" class="nav-link">
-                <li>Portfolio</li>
-            </a>
-            <a href="#testimonials" class="nav-link">
-                <li>Clients</li>
-            </a>
-            <a href="#blogspage" class="nav-link">
-                <li>Blogs</li>
-            </a>
-            <a href="#aboutpage" class="nav-link">
-                <li>About</li>
-            </a>
-            <a href="#contactpage" class="nav-link">
-                <li>Contact</li>
-            </a>
-            <a href="#loginForm" class="nav-link nvlogin">
-                <li>Login</li>
-            </a>
-            <a href="#loginForm" class="nav-link nvsignup">
-                <li>Signup</li>
-            </a>
+            <li><a href="#homepage" class="nav-link">Home</a></li>
+            <li><a href="#skillspage" class="nav-link">Skills</a></li>
+            <li><a href="#portfoliopage" class="nav-link">Portfolio</a></li>
+            <li><a href="#testimonials" class="nav-link">Clients</a></li>
+            <li><a href="#blogspage" class="nav-link">Blogs</a></li>
+            <li><a href="#aboutpage" class="nav-link">About</a></li>
+            <li><a href="#contactpage" class="nav-link">Contact</a></li>
+            <li><a href="#loginForm" class="nav-link nvlogin">Login</a></li>
+            <li><a href="#loginForm" class="nav-link nvsignup">Signup</a></li>
+            <li><a href="#logOut" class="nav-link nvslogout" id="logOut">Log Out</a></li>
         </ul>
         <img src="./images/cld-server-svgrepo-com.svg" alt="" class="burger-menu">
     </nav>
@@ -469,7 +453,7 @@
                     </div>
                 </div>
 
-                <form action="" class="contact__form" name="contact_form">
+                <form action="" id="contact__form" name="contact_form">
                     <div class="contact__inputs">
                         <div class="contact__content">
                             <label for="cont_name" class="contact__label">Name</label>
@@ -493,10 +477,10 @@
                     </div>
 
                     <div>
-                        <a href="#" class="about__button" data-aos="flip-left" data-aos-easing="ease-out-cubic"
+                        <button href="" id="contact__me__button" data-aos="flip-left" data-aos-easing="ease-out-cubic"
                             data-aos-duration="2000">
                             Send message
-                        </a>
+                        </button>
                     </div>
                 </form>
             </div>
@@ -549,18 +533,22 @@
                         </div>
                         <div class="form_div">
                             <label for="regpasswd">Password: </label>
-                            <input type="text" name="password" id="regpasswd" placeholder="PASSWORD">
+                            <input type="password" name="password" id="regpasswd" placeholder="PASSWORD">
                             <span id="input_icon"><i class="fa-solid fa-key"></i></span>
                             <i class="fa-solid fa-circle-info badInput"></i>
                             <i class="fa-solid fa-circle-check goodInput"></i>
+                            <i class="fa-solid fa-eye showPass" title="Show Password"></i>
+                            <i class="fa-solid fa-eye-slash hidePass" title="Hide Password"></i>
                             <small class="errmsg">Password not must be strong</small>
                         </div>
                         <div class="form_div">
                             <label for="regpasswd2">Repeat Password: </label>
-                            <input type="text" name="password2" id="regpasswd2" placeholder="CONFIRM PASSWORD">
+                            <input type="password" name="password2" id="regpasswd2" placeholder="CONFIRM PASSWORD">
                             <span id="input_icon"><i class="fa-solid fa-lock-open"></i></span>
                             <i class="fa-solid fa-circle-info badInput"></i>
                             <i class="fa-solid fa-circle-check goodInput"></i>
+                            <i class="fa-solid fa-eye showPass" title="Show Password"></i>
+                            <i class="fa-solid fa-eye-slash hidePass" title="Hide Password"></i>
                             <small class="errmsg">Password don't match</small>
                         </div>
                         <button type="submit" id="signbtn">REGISTER</button>
@@ -574,6 +562,8 @@
                                     href="https://github.com/">Github</a></span>
                             <span class="facebook"><i class="fa-brands fa-facebook"></i><a
                                     href="https://www.facebook.com/">Facebook</a></span>
+                            <span class="closeTheForm" title="Close the form"><i
+                                    class="fa-solid fa-circle-xmark"></i></span>
                         </p>
                     </form>
                 </fieldset>
@@ -592,13 +582,15 @@
                         </div>
                         <div class="form_div">
                             <label for="logpswd">Password: </label>
-                            <input type="text" name="password_log" id="logpswd" placeholder="PASSWORD">
+                            <input type="password" name="password_log" id="logpswd" placeholder="PASSWORD">
                             <span id="input_icon"><i class="fa-solid fa-key"></i></span>
                             <i class="fa-solid fa-circle-info badInput"></i>
                             <i class="fa-solid fa-circle-check goodInput"></i>
+                            <i class="fa-solid fa-eye showPass" title="Show Password"></i>
+                            <i class="fa-solid fa-eye-slash hidePass" title="Hide Password"></i>
                             <small class="errmsg">Incorrect password</small>
                         </div>
-                        <div class="remeber_forget">
+                        <div class="remember_forget">
                             <div class="remember_me_div">
                                 <input type="checkbox" name="remember_check" id="remember_check">
                                 <label for="remember_check">Remember me</label>
@@ -616,6 +608,8 @@
                                     href="https://github.com/">Github</a></span>
                             <span class="facebook"><i class="fa-brands fa-facebook"></i><a
                                     href="https://www.facebook.com/">Facebook</a></span>
+                            <span class="closeTheForm" title="Close the form"><i
+                                    class="fa-solid fa-circle-xmark"></i></span>
                         </p>
                     </form>
                 </fieldset>
@@ -634,23 +628,27 @@
                         </div>
                         <div class="form_div">
                             <label for="recpswd">New Password: </label>
-                            <input type="text" name="password_log" id="recpswd" placeholder="PASSWORD">
+                            <input type="password" name="password_log" id="recpswd" placeholder="PASSWORD">
                             <span id="input_icon"><i class="fa-solid fa-key"></i></span>
                             <i class="fa-solid fa-circle-info badInput"></i>
                             <i class="fa-solid fa-circle-check goodInput"></i>
+                            <i class="fa-solid fa-eye showPass" title="Show Password"></i>
+                            <i class="fa-solid fa-eye-slash hidePass" title="Hide Password"></i>
                             <small class="errmsg">Password not must be strong</small>
                         </div>
                         <div class="form_div">
                             <label for="recpswdrpt">Repeat Password: </label>
-                            <input type="text" name="password_log" id="recpswdrpt" placeholder="CONFIRM PASSWORD">
+                            <input type="password" name="password_log" id="recpswdrpt" placeholder="CONFIRM PASSWORD">
                             <span id="input_icon"><i class="fa-solid fa-lock-open"></i></span>
                             <i class="fa-solid fa-circle-info badInput"></i>
                             <i class="fa-solid fa-circle-check goodInput"></i>
+                            <i class="fa-solid fa-eye showPass" title="Show Password"></i>
+                            <i class="fa-solid fa-eye-slash hidePass" title="Hide Password"></i>
                             <small class="errmsg">Password don't match</small>
                         </div>
-                        <div class="remeber_forget">
+                        <div class="remember_forget">
                             <div class="remember_me_div">
-                                <input type="checkbox" name="remember_check" id="remember_check">
+                                <input type="checkbox" name="remember_check" id="keep_me_check">
                                 <label for="keep_me_check">Keep me logged in</label>
                             </div>
                             <a href="#acountloginpage" class="back_to_login">Login</a>
@@ -665,6 +663,8 @@
                                     href="https://github.com/">Github</a></span>
                             <span class="facebook"><i class="fa-brands fa-facebook"></i><a
                                     href="https://www.facebook.com/">Facebook</a></span>
+                            <span class="closeTheForm" title="Close the form"><i
+                                    class="fa-solid fa-circle-xmark"></i></span>
                         </p>
                     </form>
                 </fieldset>
