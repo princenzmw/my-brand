@@ -4,6 +4,7 @@
 
 const navLoginToggle = document.querySelector('.nvlogin');
 const navSignupToggle = document.querySelector('.nvsignup');
+const navLogOutToggle = document.getElementById('logOut');
 
 
 const signupPage = document.getElementById('acountsignuppage');
@@ -46,7 +47,145 @@ backToSignup.addEventListener('click', () => {
     signupPage.style.display = 'flex';
     acoountRecoverPage.style.display = 'none';
 })
-/******** End of forms toggling **********/
+
+/**
+ * Password Visibility toggling buttons
+ */
+const togglePasswordVisibility = (showIcon, hideIcon, passwordInput) => {
+    showIcon.addEventListener('click', () => {
+        passwordInput.type = 'text';
+        showIcon.style.display = 'none';
+        hideIcon.style.display = 'block';
+    });
+
+    hideIcon.addEventListener('click', () => {
+        passwordInput.type = 'password';
+        hideIcon.style.display = 'none';
+        showIcon.style.display = 'block';
+    });
+};
+
+// For signup form
+const signupShowPassIcon = document.querySelector('#acountsignuppage .showPass');
+const signupHidePassIcon = document.querySelector('#acountsignuppage .hidePass');
+const signupPasswordInput = document.getElementById('regpasswd');
+togglePasswordVisibility(signupShowPassIcon, signupHidePassIcon, signupPasswordInput);
+
+// For signup form - Repeat Password
+const signRptShowPassIcon = document.querySelector('#signupform .form_div:nth-child(7) .showPass');
+const signRptHidePassIcon = document.querySelector('#signupform .form_div:nth-child(7) .hidePass');
+const signupPassword2 = document.getElementById('regpasswd2');
+togglePasswordVisibility(signRptShowPassIcon, signRptHidePassIcon, signupPassword2);
+
+// For login form
+const loginShowPassIcon = document.querySelector('#acountloginpage .showPass');
+const loginHidePassIcon = document.querySelector('#acountloginpage .hidePass');
+const loginPasswordInput = document.getElementById('logpswd');
+togglePasswordVisibility(loginShowPassIcon, loginHidePassIcon, loginPasswordInput);
+
+// For recovery form
+const recoveryShowPassIcon = document.querySelector('#acountrecoverypage .showPass');
+const recoveryHidePassIcon = document.querySelector('#acountrecoverypage .hidePass');
+const recoveryPasswordInput = document.getElementById('recpswd');
+togglePasswordVisibility(recoveryShowPassIcon, recoveryHidePassIcon, recoveryPasswordInput);
+
+// For recovery form - Repeat Password
+const recoveryRptShowPassIcon = document.querySelector('#recoveryform .form_div:nth-child(3) .showPass');
+const recoveryRptHidePassIcon = document.querySelector('#recoveryform .form_div:nth-child(3) .hidePass');
+const recoveryRptPasswordInput = document.getElementById('recpswdrpt');
+togglePasswordVisibility(recoveryRptShowPassIcon, recoveryRptHidePassIcon, recoveryRptPasswordInput);
+
+
+// Using the red button on the form to close it
+document.querySelectorAll('.closeTheForm').forEach(el => {
+    el.addEventListener('click', () => {
+        signupPage.style.display = 'none';
+        loginPage.style.display = 'none';
+        acoountRecoverPage.style.display = 'none';
+    })
+});
+
+
+/******** End of forms toggling and othe usual functionalities **********/
+/**
+ * Users form Validation functions
+ */
+
+const users = [];
+
+// Function to hash a password
+function hashPassword(password) {
+    const hashedPassword = CryptoJS.SHA256(password).toString(CryptoJS.enc.Hex);
+    return hashedPassword;
+}
+
+// Function to add a new user to the system
+function addUser(firstname, lastname, username, email, phone, password, role = 'user') {
+    const hashedPassword = hashPassword(password);
+    const newUser = { firstname, lastname, username, email, phone, password: hashedPassword, role };
+    users.push(newUser);
+    localStorage.setItem('users', JSON.stringify(users));
+}
+
+// Function to edit an existing user in the system
+function editUser(firstname, lastname, username, email, phone, password, role) {
+    const existingUserIndex = users.findIndex(user => user.username === username);
+
+    if (existingUserIndex !== -1) {
+        const hashedPassword = hashPassword(password);
+        users[existingUserIndex].password = hashedPassword;
+        users[existingUserIndex].firstname = firstname;
+        users[existingUserIndex].lastname = lastname;
+        users[existingUserIndex].email = email;
+        users[existingUserIndex].phone = phone;
+        users[existingUserIndex].role = role;
+        localStorage.setItem('users', JSON.stringify(users));
+        console.log('User edited successfully');
+    } else {
+        console.error('User not found');
+    }
+}
+
+// Function to check if a username already exists
+function isUsernameExists(username) {
+    return users.some(user => user.username === username);
+}
+
+// Function to authenticate user
+function authenticateUser(username, password) {
+    const hashedPassword = hashPassword(password); // Hash the provided password
+    const user = users.find(u => u.username === username && u.password === hashedPassword);
+    return user ? user : null;
+}
+
+// Function to set user session
+function setUserSession(user) {
+    localStorage.setItem('currentUser', JSON.stringify(user));
+}
+
+// Function to get current user from session
+function getCurrentUser() {
+    return JSON.parse(localStorage.getItem('currentUser'));
+}
+
+// Function to check if user is authenticated
+function isAuthenticated() {
+    return !!getCurrentUser();
+}
+
+// Function to log out user
+function logoutUser() {
+    localStorage.removeItem('currentUser');
+}
+
+// Function to redirect to the login page
+function redirectToLoginPage() {
+    loginPage.style.display = 'flex';
+    signupPage.style.display = 'none';
+    acoountRecoverPage.style.display = 'none';
+}
+
+
 /**
  * Signup form Validation functions
  */
@@ -63,9 +202,6 @@ signupForm.addEventListener('submit', (event) => {
     event.preventDefault();
 
     checkSignupInputs();
-    loginPage.style.display = 'flex';
-    window.location.href = 'form.html?#acountloginpage';
-    loginPage.style.display = 'flex';
 })
 
 const checkSignupInputs = () => {
@@ -96,28 +232,22 @@ const checkSignupInputs = () => {
         addErrorMessage(signupPass2, 'Passwords do not match');
     } else {
         addSuccessMessage(signupPass2);
-
-        // Store form data in localStorage
-        const formData = {
-            firstName: firstNameValue,
-            lastName: lastNameValue,
-            username: signupUserNameValue,
-            email: signupEmailValue,
-            phone: signupPhoneValue,
-            password: signupPasswordValue
-        };
-
-        localStorage.setItem('formData', JSON.stringify(formData));
     }
 
     const allInputsValid = Array.from(signupForm.querySelectorAll('.form_div')).every(div => div.classList.contains('success'));
     const anyInputsEmpty = Array.from(signupForm.querySelectorAll('.form_div')).some(div => div.querySelector('input').value.trim() === '');
 
     if (allInputsValid && !anyInputsEmpty) {
-        signupForm.submit(); // Submit the form
-    } else {
-        // Display an error message or handle the empty fields appropriately
-        alert('Some fields are empty or invalid.');
+        if (isUsernameExists(signupUserNameValue)) {
+            console.error('Username already exists');
+        } else {
+            addUser(firstNameValue, lastNameValue, signupUserNameValue, signupEmailValue, signupPhoneValue, signupPasswordValue);
+            console.log('User registered successfully');
+            signupForm.reset();
+            redirectToLoginPage();
+            signupForm.querySelectorAll('.form_div .goodInput').forEach(div => div.style.display = 'none');
+            signupForm.querySelectorAll('.form_div').forEach(div => div.classList.remove('success'));
+        }
     }
 };
 
@@ -134,3 +264,41 @@ const addSuccessMessage = (elem) => {
     formDiv.classList = 'form_div success';
 }
 
+if (localStorage.getItem('currentUser') !== null) {
+    navLogOutToggle.style.display = 'block';
+    navLoginToggle.style.display = 'none';
+    navSignupToggle.style.display = 'none';
+}
+
+loginPage.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    const username = document.getElementById('logusr').value;
+    const password = document.getElementById('logpswd').value;
+
+    const user = authenticateUser(username, password);
+
+    if (user) {
+        setUserSession(user);
+        console.log('Login successful', user.username);
+
+        // Extract domain from email
+        const domain = user.email.split('@')[1];
+
+        // Check if the domain ends with 'admin.io'
+        if (domain.endsWith('admin.io')) {
+            window.location.href = 'pages/Admin/dashboard.html'; // Redirect to admin dashboard
+        }
+        loginPage.style.display = 'none';
+    } else {
+        console.error('Invalid username or password');
+    }
+});
+
+// Function for logging out the user
+navLogOutToggle.addEventListener('click', () => {
+    logoutUser();
+    navLoginToggle.style.display = 'block';
+    navSignupToggle.style.display = 'block';
+    navLogOutToggle.style.display = 'none';
+})
