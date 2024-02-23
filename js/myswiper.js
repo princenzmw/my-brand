@@ -77,3 +77,27 @@ navLink.forEach((link) =>
         ul.classList.remove("show");
     })
 );
+
+// Get Messages written by users from homepage
+const contactMeForm = document.getElementById('contact__form');
+
+contactMeForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    const contactName = document.getElementById('cont_name').value;
+    const contactEmail = document.getElementById('cont_mail').value;
+    const contactMsgTitle = document.getElementById('cont_subj').value;
+    const contactMsgBody = document.getElementById('cont_descrp').value;
+
+    const messageData = [];
+    const currentMessage = {
+        name: contactName,
+        email: contactEmail,
+        title: contactMsgTitle,
+        body: contactMsgBody
+    }
+    localStorage.setItem('contctsFeedback', JSON.stringify(currentMessage));
+
+    alert('Hello, World!', contactName);
+    console.log(contactName, 'Is Cool!');
+})

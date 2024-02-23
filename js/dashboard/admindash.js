@@ -249,3 +249,10 @@ const deleteBlog = (id) => {
     localStorage.setItem('blogs', JSON.stringify(myBlogsData));
     displayBlogs();
 };
+
+// Function to Logout the Admin
+logoutLink.addEventListener('click', () => {
+    localStorage.removeItem('currentUser');
+    window.location.href = '/index.html';
+});
+
