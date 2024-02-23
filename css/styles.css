@@ -645,7 +645,7 @@ nav ul li {
   padding: 0.25rem 0.5rem 0.5rem 0;
 }
 
-.contact__form,
+#contact__form,
 .contact__inputs {
   display: grid;
   gap: 1.5rem;
@@ -655,20 +655,18 @@ nav ul li {
   grid-template-columns: repeat(2, 1fr);
 }
 
-.contact__form {
+#contact__form {
   max-width: 460px;
 }
 
-.about__button {
-  text-decoration: none;
-  display: inline-flex;
+#contact__me__button {
   background-color: #4070f4;
   color: #fff;
   padding: 1rem;
   border-radius: 0.5rem;
   font-weight: 500;
-  align-items: center;
-  transition: 0.3s;
+  border: 1px solid #4070f4;
+  cursor: pointer;
 }
 
 /*end contact*/
@@ -792,7 +790,7 @@ nav ul li {
     gap: 20px;
   }
 
-  .contact__form {
+  #contact__form {
     padding: 0 8px;
   }
 
