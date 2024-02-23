@@ -5,7 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
-    <link rel="stylesheet" href="../../css/styles.css">
     <link rel="stylesheet" href="../../css/dashboard/admindash.css">
     <link rel="stylesheet" href="../../css/dashboard/users.css">
     <script src="https://kit.fontawesome.com/6e24aa161b.js" crossorigin="anonymous"></script>
@@ -13,7 +12,6 @@
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <!--CDN for icons from Bootstrap 5-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
-    <!-- <link rel="stylesheet" href="../blogs/bloghome.html"> -->
 </head>
 
 <body>
@@ -64,23 +62,23 @@
                 <div class="dash_overview">
                     <div class="statistics one">
                         <b><i class="fa-solid fa-users-between-lines"></i></b>
-                        <h2>Users</h2>
-                        <h3>46</h3>
+                        <h3>Users</h3>
+                        <h4>46</h4>
                     </div>
                     <div class="statistics one">
                         <b><i class="fa-solid fa-envelopes-bulk"></i></b>
-                        <h2>Post</h2>
-                        <h3>14</h3>
+                        <h3>Post</h3>
+                        <h4>14</h4>
                     </div>
                     <div class="statistics one">
                         <b><i class="fa-solid fa-comment-dots"></i></b>
-                        <h2>Comments</h2>
-                        <h3>246</h3>
+                        <h3>Comments</h3>
+                        <h4>246</h4>
                     </div>
                     <div class="statistics one">
                         <b><i class="fa-solid fa-message"></i></b>
-                        <h2>Messages</h2>
-                        <h3>146</h3>
+                        <h3>Messages</h3>
+                        <h4>146</h4>
                     </div>
                 </div>
             </div>
@@ -90,7 +88,7 @@
                 <div id="blogContainer">
                     <div class="existingBlogs">
                         <h2 class="titlesblogs">Blogs</h2>
-                        <h2 id="blogadder">Add New blog <b><i class="fa-solid fa-circle-plus"></i></b></h2>
+                        <h3 id="blogadder">New blog <b><i class="fa-solid fa-circle-plus"></i></b></h3>
                     </div>
                     <div class="available_blog">
                         <!-- <div class="av_blog_div">
@@ -291,7 +289,9 @@
                     </div>
                 </div>
             </div>
-            <div id="messageContainer"></div>
+            <div id="messageContainer">
+                <div id="addedmessages"></div>
+            </div>
             <div id="commentContainer"></div>
         </div>
     </main>
@@ -304,4 +304,3 @@
 </body>
 
 </html>
-<!-- <button style="display: flex; gap: 10px;"></button> -->
