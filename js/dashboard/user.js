@@ -24,7 +24,7 @@ newUserBtn.addEventListener('click', () => {
     submitBtn.innerText = 'Submit',
         modalTitle.innerText = "Fill the Form"
     isEdit = false
-    imgInput.src = "./image/Profile Icon.webp"
+    imgInput.src = "../../images/ProfileIcon.webp"
     form.reset()
 })
 
@@ -119,7 +119,7 @@ form.addEventListener('submit', (e) => {
     e.preventDefault()
 
     const information = {
-        picture: imgInput.src == undefined ? "./image/Profile Icon.webp" : imgInput.src,
+        picture: imgInput.src == undefined ? "../../images/ProfileIcon.webp" : imgInput.src,
         employeeName: userName.value,
         employeeAge: age.value,
         employeeCity: city.value,
@@ -146,7 +146,7 @@ form.addEventListener('submit', (e) => {
 
     form.reset()
 
-    imgInput.src = "./image/Profile Icon.webp"
+    imgInput.src = "../../images/ProfileIcon.webp"
 
     // modal.style.display = "none"
     // document.querySelector(".modal-backdrop").remove()
