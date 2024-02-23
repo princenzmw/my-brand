@@ -79,25 +79,55 @@ navLink.forEach((link) =>
 );
 
 // Get Messages written by users from homepage
+// Initialize messages array when the page loads
+document.addEventListener('DOMContentLoaded', () => {
+    // Get existing messages from localStorage or initialize an empty array
+    let messages = JSON.parse(localStorage.getItem('contactMessages')) || [];
+
+    // Display existing messages (if any)
+    displayMessages(messages);
+});
+
+// Function to display messages
+function displayMessages(messages) {
+    // Code to display messages on the page goes here
+}
+
+// Get Messages written by users from homepage
 const contactMeForm = document.getElementById('contact__form');
 
 contactMeForm.addEventListener('submit', (e) => {
     e.preventDefault();
 
-    const contactName = document.getElementById('cont_name').value;
-    const contactEmail = document.getElementById('cont_mail').value;
-    const contactMsgTitle = document.getElementById('cont_subj').value;
-    const contactMsgBody = document.getElementById('cont_descrp').value;
+    // Get form input values
+    const contactName = document.getElementById('cont_name').value.trim();
+    const contactEmail = document.getElementById('cont_mail').value.trim();
+    const contactMsgTitle = document.getElementById('cont_subj').value.trim();
+    const contactMsgBody = document.getElementById('cont_descrp').value.trim();
 
-    const messageData = [];
-    const currentMessage = {
+    // Validate form inputs
+    if (contactName === '' || contactEmail === '' || contactMsgTitle === '' || contactMsgBody === '') {
+        alert('Please fill in all fields.');
+        return;
+    }
+
+    // Get existing messages from localStorage or initialize an empty array
+    let messages = JSON.parse(localStorage.getItem('contactMessages')) || [];
+
+    // Create a new message object
+    const newMessage = {
         name: contactName,
         email: contactEmail,
         title: contactMsgTitle,
         body: contactMsgBody
-    }
-    localStorage.setItem('contctsFeedback', JSON.stringify(currentMessage));
+    };
 
-    alert('Hello, World!', contactName);
-    console.log(contactName, 'Is Cool!');
-})
+    // Add the new message to the array
+    messages.push(newMessage);
+
+    // Store the updated array back to localStorage
+    localStorage.setItem('contactMessages', JSON.stringify(messages));
+
+    console.log('Message sent:', newMessage);
+    contactMeForm.reset();
+});

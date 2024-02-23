@@ -48,7 +48,7 @@ const blogLink = document.getElementById('dsh_blg');
 const projectLink = document.getElementById('dsh_prj');
 const portfolioLink = document.getElementById('dsh_port');
 const usersLink = document.getElementById('dsh_usrs');
-const postsLink = document.getElementById('dsh_posts');
+const messagesLink = document.getElementById('dsh_posts');
 const commentsLink = document.getElementById('dsh_comts');
 const logoutLink = document.getElementById('dsh_lgt');
 
@@ -56,16 +56,18 @@ const blogsContainerDiv = document.getElementById('returnContainer');
 const usersContainerDiv = document.getElementById('usersContainer');
 const portfoliosContainerDiv = document.getElementById('portfolioContainer');
 const projectsContainerDiv = document.getElementById('projectContainer');
-const postsContainerDiv = document.getElementById('postContainer');
+const messageContainer = document.getElementById('messageContainer');
 const commentsContainerDiv = document.getElementById('commentContainer');
 
 blogLink.addEventListener('click', () => {
     usersContainerDiv.style.display = 'none';
+    messageContainer.style.display = 'none';
     blogsContainerDiv.style.display = 'block';
 })
 
 usersLink.addEventListener('click', () => {
     blogsContainerDiv.style.display = 'none';
+    messageContainer.style.display = 'none';
     usersContainerDiv.style.display = 'block';
 })
 
@@ -256,3 +258,44 @@ logoutLink.addEventListener('click', () => {
     window.location.href = '/index.html';
 });
 
+/**
+ * Get the user's messages
+ */
+
+messagesLink.addEventListener('click', () => {
+    displayMessages(messages);
+    usersContainerDiv.style.display = 'none';
+    blogsContainerDiv.style.display = 'none';
+    messageContainer.style.display = 'block';
+})
+
+let messages = JSON.parse(localStorage.getItem('contactMessages')) || [];
+
+function displayMessages(messages) {
+
+    messageContainer.innerHTML = '';
+
+    messages.forEach(message => {
+        // Create a div element to hold the message
+        const messageDiv = document.createElement('div');
+        messageDiv.classList.add('message');
+
+        // Create HTML content for the message
+        const messageHTML = `
+            <div>
+                <h3>Name: ${message.name}</h3>
+                <p>Email: ${message.email}</p>
+                <p>Title: ${message.title}</p>
+                <p>Body: ${message.body}</p>
+                <div style="display: flex; gap: 10px;">
+                    <button>Reply</button>
+                    <button style="background-color: #ff0000;">Delete</button>
+                </div>
+            </div>
+        `;
+
+        messageDiv.innerHTML = messageHTML;
+
+        messageContainer.appendChild(messageDiv);
+    });
+}
