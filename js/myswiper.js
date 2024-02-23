@@ -114,12 +114,18 @@ contactMeForm.addEventListener('submit', (e) => {
     // Get existing messages from localStorage or initialize an empty array
     let messages = JSON.parse(localStorage.getItem('contactMessages')) || [];
 
+    // Create functionalities to convert the date to form [feb 23, 2024 23:43]
+    const monthAbbr = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+    const now = new Date();
+    const formattedDate = `${monthAbbr[now.getMonth()]} ${now.getDate()}, ${now.getFullYear()} ${now.getHours().toString().padStart(2, '0')}:${now.getMinutes().toString().padStart(2, '0')}`;
+
     // Create a new message object
     const newMessage = {
         name: contactName,
         email: contactEmail,
         title: contactMsgTitle,
-        body: contactMsgBody
+        body: contactMsgBody,
+        sentAt: formattedDate
     };
 
     // Add the new message to the array
@@ -128,6 +134,5 @@ contactMeForm.addEventListener('submit', (e) => {
     // Store the updated array back to localStorage
     localStorage.setItem('contactMessages', JSON.stringify(messages));
 
-    console.log('Message sent:', newMessage);
     contactMeForm.reset();
 });
