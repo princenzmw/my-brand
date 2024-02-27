@@ -290,8 +290,9 @@ loginPage.addEventListener('submit', (e) => {
             window.location.href = 'pages/Admin/dashboard.html'; // Redirect to admin dashboard
         }
         loginPage.style.display = 'none';
+        window.location.href = 'index.html';
     } else {
-        console.error('Invalid username or password');
+        alert('Invalid username or password');
     }
 });
 
@@ -302,3 +303,13 @@ navLogOutToggle.addEventListener('click', () => {
     navSignupToggle.style.display = 'block';
     navLogOutToggle.style.display = 'none';
 })
+
+function initApp() {
+    const savedUsers = localStorage.getItem('users');
+    if (savedUsers) {
+        users.push(...JSON.parse(savedUsers));
+    }
+}
+
+// Call the initialization function when the page is loaded
+window.addEventListener('load', initApp);
