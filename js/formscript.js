@@ -244,6 +244,7 @@ const checkSignupInputs = () => {
             addUser(firstNameValue, lastNameValue, signupUserNameValue, signupEmailValue, signupPhoneValue, signupPasswordValue);
             console.log('User registered successfully');
             signupForm.reset();
+            addToUserDashboard(firstNameValue, lastNameValue, signupUserNameValue, signupEmailValue, signupPhoneValue);
             redirectToLoginPage();
             signupForm.querySelectorAll('.form_div .goodInput').forEach(div => div.style.display = 'none');
             signupForm.querySelectorAll('.form_div').forEach(div => div.classList.remove('success'));
@@ -264,11 +265,34 @@ const addSuccessMessage = (elem) => {
     formDiv.classList = 'form_div success';
 }
 
-if (localStorage.getItem('currentUser') !== null) {
-    navLogOutToggle.style.display = 'block';
-    navLoginToggle.style.display = 'none';
-    navSignupToggle.style.display = 'none';
+const usInformation = JSON.parse(localStorage.getItem('userProfile')) || [];
+function addToUserDashboard(fnm, lnm, unm, uml, ufne) {
+    const uRole = uml.endsWith('admin.io') ? 'admin' : 'user';
+
+    const information = [
+        {
+            picture: "../../images/ProfileIcon.webp",
+            employeeName: fnm,
+            employeeAge: lnm,
+            employeeCity: unm,
+            employeeEmail: uml,
+            employeePhone: ufne,
+            employeePost: uRole,
+            startDate: new Date().toISOString().split('T')[0]
+        }
+    ];
+    usInformation.push(information);
+    localStorage.setItem('userProfile', JSON.stringify(usInformation));
 }
+
+// End of sign up
+document.addEventListener('DOMContentLoaded', () => {
+    if (localStorage.getItem('currentUser')) {
+        navLogOutToggle.style.display = 'block';
+        navLoginToggle.style.display = 'none';
+        navSignupToggle.style.display = 'none';
+    }
+});
 
 loginPage.addEventListener('submit', (e) => {
     e.preventDefault();
@@ -288,9 +312,11 @@ loginPage.addEventListener('submit', (e) => {
         // Check if the domain ends with 'admin.io'
         if (domain.endsWith('admin.io')) {
             window.location.href = 'pages/Admin/dashboard.html'; // Redirect to admin dashboard
+        } else {
+            loginPage.style.display = 'none';
+            window.location.href = 'index.html';
         }
-        loginPage.style.display = 'none';
-        window.location.href = 'index.html';
+
     } else {
         alert('Invalid username or password');
     }

@@ -262,7 +262,7 @@ logoutLink.addEventListener('click', () => {
  * Get the user's messages
  */
 
-let messages = JSON.parse(localStorage.getItem('contactMessages')) || [];
+const messages = JSON.parse(localStorage.getItem('contactMessages')) || [];
 
 function displayMessages(messages) {
     const addedmessages = document.getElementById('addedmessages');
@@ -302,6 +302,11 @@ function displayMessages(messages) {
         addedmessages.appendChild(messageDiv);
     });
 }
+messages.length > 0 ? messagesLink.innerHTML += `
+    <span style="color: #ff0000; background-color: #ffffff; border-radius:5px; padding:5px;">
+    ${messages.length}
+    </span>
+` : messagesLink.innerHTML;
 
 function deleteMessage(index) {
     messages.splice(index, 1);

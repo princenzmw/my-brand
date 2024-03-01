@@ -7,7 +7,6 @@ var form = document.getElementById("myForm"),
     email = document.getElementById("email"),
     phone = document.getElementById("phone"),
     post = document.getElementById("post"),
-    sDate = document.getElementById("sDate"),
     submitBtn = document.querySelector(".submit"),
     userInfo = document.getElementById("data"),
     modal = document.getElementById("userForm"),
@@ -77,19 +76,18 @@ function showInfo() {
 showInfo()
 
 
-function readInfo(pic, name, age, city, email, phone, post, sDate) {
+function readInfo(pic, name, age, city, email, phone, post) {
     document.querySelector('.showImg').src = pic,
         document.querySelector('#showName').value = name,
         document.querySelector("#showAge").value = age,
         document.querySelector("#showCity").value = city,
         document.querySelector("#showEmail").value = email,
         document.querySelector("#showPhone").value = phone,
-        document.querySelector("#showPost").value = post,
-        document.querySelector("#showsDate").value = sDate
+        document.querySelector("#showPost").value = post
 }
 
 
-function editInfo(index, pic, name, Age, City, Email, Phone, Post, Sdate) {
+function editInfo(index, pic, name, Age, City, Email, Phone, Post) {
     isEdit = true
     editId = index
     imgInput.src = pic
@@ -98,22 +96,23 @@ function editInfo(index, pic, name, Age, City, Email, Phone, Post, Sdate) {
     city.value = City
     email.value = Email,
         phone.value = Phone,
-        post.value = Post,
-        sDate.value = Sdate
+        post.value = Post
 
     submitBtn.innerText = "Update"
     modalTitle.innerText = "Update The Form"
 }
 
+function addToStorage(x) {
+    localStorage.setItem("userProfile", JSON.stringify(x));
+}
 
 function deleteInfo(index) {
     if (confirm("Are you sure want to delete?")) {
         getData.splice(index, 1)
-        localStorage.setItem("userProfile", JSON.stringify(getData))
+        addToStorage(getData);
         showInfo()
     }
 }
-
 
 form.addEventListener('submit', (e) => {
     e.preventDefault()
@@ -126,7 +125,7 @@ form.addEventListener('submit', (e) => {
         employeeEmail: email.value,
         employeePhone: phone.value,
         employeePost: post.value,
-        startDate: sDate.value
+        startDate: new Date().toISOString().split('T')[0]
     }
 
     if (!isEdit) {
@@ -137,7 +136,7 @@ form.addEventListener('submit', (e) => {
         getData[editId] = information
     }
 
-    localStorage.setItem('userProfile', JSON.stringify(getData))
+    addToStorage(getData);
 
     submitBtn.innerText = "Submit"
     modalTitle.innerHTML = "Fill The Form"

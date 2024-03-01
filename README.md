@@ -15,6 +15,7 @@ This is a the repositoy for my official portfolio page. I'm working on it in the
 - [Author](#author)
 
 **Note: Delete this note and update the table of contents based on what sections you keep.**
+[![Netlify Status](https://api.netlify.com/api/v1/badges/9e7fc648-0c7f-41d5-8042-7276daab6831/deploy-status)](https://app.netlify.com/sites/princenzmw/deploys)
 
 ## Overview
 

@@ -1,3 +1,4 @@
+AOS.init();
 // For swiper
 var swiper = new Swiper(".slide-content", {
     slidesPerView: 3,
@@ -27,7 +28,26 @@ var swiper = new Swiper(".slide-content", {
         },
     }
 });
-AOS.init();
+
+// Nav hamburgerburger selections
+const burger = document.querySelector(".burger-menu");
+const hmomenav = document.querySelector(".home_nav");
+
+// Select nav links
+const navLink = document.querySelectorAll(".nav-link");
+
+// Hamburger menu function
+burger.addEventListener("click", () => {
+    hmomenav.classList.toggle("show");
+});
+
+// Close hamburger menu when a link is clicked
+navLink.forEach((link) =>
+    link.addEventListener("click", () => {
+        hmomenav.classList.remove("show");
+    })
+);
+
 // For Login an SignUp
 function toggleSignupForm() {
     document.getElementById('login').classList.add('hidden');
@@ -53,44 +73,6 @@ function validateSignup() {
         alert('Account successfuly created, login to access your data');
         return true;
     }
-}
-function validateLogin() {
-    // Add your login validation logic here
-}
-
-// Nav hamburgerburger selections
-const burger = document.querySelector(".burger-menu");
-const ul = document.querySelector("nav ul");
-const nav = document.querySelector("nav");
-
-// Select nav links
-const navLink = document.querySelectorAll(".nav-link");
-
-// Hamburger menu function
-burger.addEventListener("click", () => {
-    ul.classList.toggle("show");
-});
-
-// Close hamburger menu when a link is clicked
-navLink.forEach((link) =>
-    link.addEventListener("click", () => {
-        ul.classList.remove("show");
-    })
-);
-
-// Get Messages written by users from homepage
-// Initialize messages array when the page loads
-document.addEventListener('DOMContentLoaded', () => {
-    // Get existing messages from localStorage or initialize an empty array
-    let messages = JSON.parse(localStorage.getItem('contactMessages')) || [];
-
-    // Display existing messages (if any)
-    displayMessages(messages);
-});
-
-// Function to display messages
-function displayMessages(messages) {
-    // Code to display messages on the page goes here
 }
 
 // Get Messages written by users from homepage

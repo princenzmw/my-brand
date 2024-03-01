@@ -4,11 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="images/favicon.svg" type="image/x-icon">
     <!-- for icons -->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <title>Prince NZAMUWE</title>
     <!-- styles for swipper -->
 
@@ -16,16 +15,17 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="css/formstyles.css">
     <!-- main css style -->
-    <link rel="stylesheet" href="css/styles.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 </head>
 
 <body>
-    <nav data-aos="fade-left" data-aos-anchor="#example-anchor" data-aos-offset="500" data-aos-duration="500">
+    <nav class="home_nav">
         <img src="./images/Prince-Logo.png" alt="Logo image" class="logo_icon">
-        <ul class="navigation">
+        <ul class="navigation_hm">
             <li><a href="#homepage" class="nav-link">Home</a></li>
             <li><a href="#skillspage" class="nav-link">Skills</a></li>
             <li><a href="#portfoliopage" class="nav-link">Portfolio</a></li>
@@ -37,32 +37,36 @@
             <li><a href="#loginForm" class="nav-link nvsignup">Signup</a></li>
             <li><a href="#logOut" class="nav-link nvslogout" id="logOut">Log Out</a></li>
         </ul>
-        <img src="./images/cld-server-svgrepo-com.svg" alt="" class="burger-menu">
     </nav>
+    <header class="home_header">
+        <img src="./images/Prince-Logo.png" alt="Logo image" class="hm_hdr_logo_icon">
+        <h3>Prince NZAMUWE</h3>
+        <img src="./images/cld-server-svgrepo-com.svg" alt="" class="burger-menu">
+    </header>
     <main>
         <section id="homepage" data-aos="fade-down" data-aos-easing="linear" data-aos-duration="1500">
             <div class="leftside">
                 <h1 id="welcome">
                     Hello, my name is <span id="my-name">Prince NZAMUWE</span>
                 </h1>
-                <p id="descript">
+                <p id="descript" data-aos="fade-up" data-aos-anchor-placement="bottom-bottom">
                     I'm an aspiring Software developer / engineer always working to build new skills and hone my
                     existing ones.
                 </p>
-                <div class="home-icons" data-aos="zoom-out-up">
+                <div class="home-icons">
                     <a href="https://www.linkedin.com/in/princenzmw/" target="_blank">.<i
                             class="fa-brands fa-linkedin"></i></a>
                     <a href="http://www.instagram.com/fudjiprinko146" target="_blank">.<i
                             class="bx bxl-instagram"></i></a>
-                    <a href="http://twitter.com/princenzmw" target="_blank"><i class="bx bxl-twitter">.</i></a>
+                    <a href="http://twitter.com/princenzmw" target="_blank">.<i class="bx bxl-twitter"></i></a>
                 </div>
-                <div class="home-buttons" data-aos="fade-up" data-aos-anchor-placement="bottom-bottom">
+                <div class="home-buttons">
                     <a href="#portfoliopage" id="port">Portfolio</a>
                     <a href="#contactpage" id="cont">Contact </a>
                 </div>
             </div>
             <div class="rightside" data-aos="zoom-in-right">
-                <img src="images/princehome.png" alt="Home Picture" class="princehome" />
+                <img src="images/princehome.png" alt="Home Picture" class="princehome">
             </div>
         </section>
         <!-- Skills section -->
@@ -72,16 +76,16 @@
 
             <div class="skills-wrapper" data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="2000">
                 <div class="first-set animate__animated animate__pulse">
-                    <img src="images/icons/icons8-html-5.svg" alt="" loading="lazy" class="icon icon-card" />
-                    <img src="images/icons/icons8-css3.svg" alt="" loading="lazy" class="icon icon-card" />
-                    <img src="images/icons/icons8-javascript.svg" alt="" loading="lazy" class="icon icon-card" />
+                    <img src="images/icons/icons8-html-5.svg" alt="" loading="lazy" class="icon icon-card">
+                    <img src="images/icons/icons8-css3.svg" alt="" loading="lazy" class="icon icon-card">
+                    <img src="images/icons/icons8-javascript.svg" alt="" loading="lazy" class="icon icon-card">
                 </div>
 
                 <div class="second-set animate__animated animate__pulse">
                     <img src="images/icons/icons8-bootstrap.svg" alt="" loading="lazy" class="icon icon-card"
-                        data-aos="fade-up" data-aos-anchor-placement="top-center" />
-                    <img src="images/icons/icons8-react-native.svg" alt="" loading="lazy" class="icon icon-card" />
-                    <img src="images/icons/icons8-git.svg" alt="" loading="lazy" class="icon icon-card" />
+                        data-aos="fade-up" data-aos-anchor-placement="top-center">
+                    <img src="images/icons/icons8-react-native.svg" alt="" loading="lazy" class="icon icon-card">
+                    <img src="images/icons/icons8-git.svg" alt="" loading="lazy" class="icon icon-card">
                 </div>
             </div>
         </section>
@@ -100,12 +104,12 @@
                         <button data-aos="zoom-out-up">Read More</button>
                     </div>
                     <div class="proj-image" data-aos="fade-up" data-aos-anchor-placement="bottom-bottom">
-                        <img src="./images/proj/easydesign.png" alt="Project image" class="proj-img" />
+                        <img src="./images/proj/easydesign.png" alt="Project image" class="proj-img">
                     </div>
                 </div>
                 <div class="project-2 project-done">
                     <div class="proj-image" data-aos="fade-up" data-aos-anchor-placement="bottom-bottom">
-                        <img src="./images/proj/workharder.png" alt="Project image" class="proj-img" />
+                        <img src="./images/proj/workharder.png" alt="Project image" class="proj-img">
                     </div>
                     <div class="proj-descr" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
                         <h3>Work Harder, Nobody cares! They'll only care about you when you are able to provide
@@ -127,7 +131,7 @@
                         <button data-aos="zoom-out-up">Read More</button>
                     </div>
                     <div class="proj-image" data-aos="fade-up" data-aos-anchor-placement="bottom-bottom">
-                        <img src="./images/proj/blackinphoto.png" alt="Project image" class="proj-img" />
+                        <img src="./images/proj/blackinphoto.png" alt="Project image" class="proj-img">
                     </div>
                 </div>
             </div>
@@ -330,7 +334,7 @@
             <h2 class="blogs-title">Check out my Latest Blogs</h2>
             <div class="blogs-container">
                 <div class="blog-container blog-card" data-aos="fade-up" data-aos-duration="3000">
-                    <img src="images/blogs/blog1.jpeg" alt="expense-tracker" loading="lazy" class="blog-pic" />
+                    <img src="images/blogs/blog1.jpeg" alt="expense-tracker" loading="lazy" class="blog-pic">
                     <h3 class="blog-title">Expand Your Connecion</h3>
                     <p class="blog-details">
                         Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quas
@@ -341,7 +345,7 @@
                 </div>
                 <div class="blog-container blog-card" data-aos="fade-down" data-aos-easing="linear"
                     data-aos-duration="1500">
-                    <img src="images/blogs/blog2.jpeg" alt="netflic-clone" loading="lazy" class="blog-pic" />
+                    <img src="images/blogs/blog2.jpeg" alt="netflic-clone" loading="lazy" class="blog-pic">
                     <h3 class="blog-title">Explore the World Easily</h3>
                     <p class="blog-details">
                         Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quas
@@ -352,7 +356,7 @@
                 </div>
                 <div class="blog-container blog-card" data-aos="fade-right" data-aos-offset="300"
                     data-aos-easing="ease-in-sine">
-                    <img src="images/blogs/blog3.jpg" alt="greeny-earth" loading="lazy" class="blog-pic" />
+                    <img src="images/blogs/blog3.jpg" alt="greeny-earth" loading="lazy" class="blog-pic">
                     <h3 class="blog-title">Make your Resume stronger</h3>
                     <p class="blog-details">
                         Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quas
@@ -365,7 +369,7 @@
             <div class="blogs-container">
                 <div class="blog-container blog-card" data-aos="fade-left" data-aos-anchor="#example-anchor"
                     data-aos-offset="500" data-aos-duration="500">
-                    <img src="images/blogs/blog4.png" alt="expense-tracker" loading="lazy" class="blog-pic" />
+                    <img src="images/blogs/blog4.png" alt="expense-tracker" loading="lazy" class="blog-pic">
                     <h3 class="blog-title">Economic Crisis</h3>
                     <p class="blog-details">
                         Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quas
@@ -375,7 +379,7 @@
                     <a href="pages/blogs/bloghome.html" target="_blank" class="blog-link">READ FULL BLOG</a>
                 </div>
                 <div class="blog-container blog-card" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
-                    <img src="images/blogs/blog5.png" alt="netflic-clone" loading="lazy" class="blog-pic" />
+                    <img src="images/blogs/blog5.png" alt="netflic-clone" loading="lazy" class="blog-pic">
                     <h3 class="blog-title">Let's make the world better</h3>
                     <p class="blog-details">
                         Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quas
@@ -385,7 +389,7 @@
                     <a href="pages/blogs/bloghome.html" target="_blank" class="blog-link">READ FULL BLOG</a>
                 </div>
                 <div class="blog-container blog-card" data-aos="fade-up" data-aos-anchor-placement="top-center">
-                    <img src="images/blogs/blog6.jpg" alt="greeny-earth" loading="lazy" class="blog-pic" />
+                    <img src="images/blogs/blog6.jpg" alt="greeny-earth" loading="lazy" class="blog-pic">
                     <h3 class="blog-title">Participate to my blogs</h3>
                     <p class="blog-details">
                         Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quas
@@ -453,7 +457,7 @@
                     </div>
                 </div>
 
-                <form action="" id="contact__form" name="contact_form">
+                <form id="contact__form" name="contact_form">
                     <div class="contact__inputs">
                         <div class="contact__content">
                             <label for="cont_name" class="contact__label">Name</label>
@@ -473,11 +477,11 @@
 
                     <div class="contact__content">
                         <label for="cont_descrp" class="contact__label">Description</label>
-                        <textarea name="" id="cont_descrp" cols="0" rows="4" class="contact__input"></textarea>
+                        <textarea id="cont_descrp" cols="1" rows="4" class="contact__input"></textarea>
                     </div>
 
                     <div>
-                        <button href="" id="contact__me__button" data-aos="flip-left" data-aos-easing="ease-out-cubic"
+                        <button id="contact__me__button" data-aos="flip-left" data-aos-easing="ease-out-cubic"
                             data-aos-duration="2000">
                             Send message
                         </button>
@@ -494,7 +498,7 @@
                         <div class="form_div">
                             <label for="firstnm">First Name: </label>
                             <input type="text" name="fist_name" id="firstnm" placeholder="FIRST NAME">
-                            <span id="input_icon"><i class="fa-regular fa-circle-user"></i></span>
+                            <span class="input_icon"><i class="fa-regular fa-circle-user"></i></span>
                             <i class="fa-solid fa-circle-info badInput"></i>
                             <i class="fa-solid fa-circle-check goodInput"></i>
                             <small class="errmsg">Name must contain no number or space</small>
@@ -502,7 +506,7 @@
                         <div class="form_div">
                             <label for="lastnm">Last Name: </label>
                             <input type="text" name="last_name" id="lastnm" placeholder="LAST NAME">
-                            <span id="input_icon"><i class="fa-solid fa-user"></i></span>
+                            <span class="input_icon"><i class="fa-solid fa-user"></i></span>
                             <i class="fa-solid fa-circle-info badInput"></i>
                             <i class="fa-solid fa-circle-check goodInput"></i>
                             <small class="errmsg">Name must contain no number or space</small>
@@ -510,7 +514,7 @@
                         <div class="form_div">
                             <label for="usernm">Username: </label>
                             <input type="text" name="username" id="usernm" placeholder="USERNAME">
-                            <span id="input_icon"><i class="fa-regular fa-id-card"></i></span>
+                            <span class="input_icon"><i class="fa-regular fa-id-card"></i></span>
                             <i class="fa-solid fa-circle-info badInput"></i>
                             <i class="fa-solid fa-circle-check goodInput"></i>
                             <small class="errmsg">Enter a valid username</small>
@@ -518,7 +522,7 @@
                         <div class="form_div">
                             <label for="sgnemail">Email Address: </label>
                             <input type="text" name="email" id="sgnemail" placeholder="example.email.com">
-                            <span id="input_icon"><i class="fa-solid fa-at"></i></span>
+                            <span class="input_icon"><i class="fa-solid fa-at"></i></span>
                             <i class="fa-solid fa-circle-info badInput"></i>
                             <i class="fa-solid fa-circle-check goodInput"></i>
                             <small class="errmsg">invalid Email address</small>
@@ -526,7 +530,7 @@
                         <div class="form_div">
                             <label for="phonenbr">Phone Number: </label>
                             <input type="text" name="phone" id="phonenbr" placeholder="+250781712081">
-                            <span id="input_icon"><i class="fa-solid fa-square-phone"></i></span>
+                            <span class="input_icon"><i class="fa-solid fa-square-phone"></i></span>
                             <i class="fa-solid fa-circle-info badInput"></i>
                             <i class="fa-solid fa-circle-check goodInput"></i>
                             <small class="errmsg">invalid Phone number</small>
@@ -534,7 +538,7 @@
                         <div class="form_div">
                             <label for="regpasswd">Password: </label>
                             <input type="password" name="password" id="regpasswd" placeholder="PASSWORD">
-                            <span id="input_icon"><i class="fa-solid fa-key"></i></span>
+                            <span class="input_icon"><i class="fa-solid fa-key"></i></span>
                             <i class="fa-solid fa-circle-info badInput"></i>
                             <i class="fa-solid fa-circle-check goodInput"></i>
                             <i class="fa-solid fa-eye showPass" title="Show Password"></i>
@@ -544,7 +548,7 @@
                         <div class="form_div">
                             <label for="regpasswd2">Repeat Password: </label>
                             <input type="password" name="password2" id="regpasswd2" placeholder="CONFIRM PASSWORD">
-                            <span id="input_icon"><i class="fa-solid fa-lock-open"></i></span>
+                            <span class="input_icon"><i class="fa-solid fa-lock-open"></i></span>
                             <i class="fa-solid fa-circle-info badInput"></i>
                             <i class="fa-solid fa-circle-check goodInput"></i>
                             <i class="fa-solid fa-eye showPass" title="Show Password"></i>
@@ -575,7 +579,7 @@
                         <div class="form_div">
                             <label for="logusr">Username: </label>
                             <input type="text" name="username_log" id="logusr" placeholder="USERNAME">
-                            <span id="input_icon"><i class="fa-regular fa-id-card"></i></span>
+                            <span class="input_icon"><i class="fa-regular fa-id-card"></i></span>
                             <i class="fa-solid fa-circle-info badInput"></i>
                             <i class="fa-solid fa-circle-check goodInput"></i>
                             <small class="errmsg">Incorrect Username</small>
@@ -583,7 +587,7 @@
                         <div class="form_div">
                             <label for="logpswd">Password: </label>
                             <input type="password" name="password_log" id="logpswd" placeholder="PASSWORD">
-                            <span id="input_icon"><i class="fa-solid fa-key"></i></span>
+                            <span class="input_icon"><i class="fa-solid fa-key"></i></span>
                             <i class="fa-solid fa-circle-info badInput"></i>
                             <i class="fa-solid fa-circle-check goodInput"></i>
                             <i class="fa-solid fa-eye showPass" title="Show Password"></i>
@@ -618,10 +622,11 @@
                 <fieldset class="accounts_recover_form">
                     <legend id="legendrec">ACCOUNT RECOVERY</legend>
                     <form id="recoveryform">
+                        <h3>Enter you Data for recovery:</h3>
                         <div class="form_div">
                             <label for="recusr">Username: </label>
                             <input type="text" name="username_log" id="recusr" placeholder="USERNAME">
-                            <span id="input_icon"><i class="fa-regular fa-id-card"></i></span>
+                            <span class="input_icon"><i class="fa-regular fa-id-card"></i></span>
                             <i class="fa-solid fa-circle-info badInput"></i>
                             <i class="fa-solid fa-circle-check goodInput"></i>
                             <small class="errmsg">Error message</small>
@@ -629,7 +634,7 @@
                         <div class="form_div">
                             <label for="recpswd">New Password: </label>
                             <input type="password" name="password_log" id="recpswd" placeholder="PASSWORD">
-                            <span id="input_icon"><i class="fa-solid fa-key"></i></span>
+                            <span class="input_icon"><i class="fa-solid fa-key"></i></span>
                             <i class="fa-solid fa-circle-info badInput"></i>
                             <i class="fa-solid fa-circle-check goodInput"></i>
                             <i class="fa-solid fa-eye showPass" title="Show Password"></i>
@@ -639,7 +644,7 @@
                         <div class="form_div">
                             <label for="recpswdrpt">Repeat Password: </label>
                             <input type="password" name="password_log" id="recpswdrpt" placeholder="CONFIRM PASSWORD">
-                            <span id="input_icon"><i class="fa-solid fa-lock-open"></i></span>
+                            <span class="input_icon"><i class="fa-solid fa-lock-open"></i></span>
                             <i class="fa-solid fa-circle-info badInput"></i>
                             <i class="fa-solid fa-circle-check goodInput"></i>
                             <i class="fa-solid fa-eye showPass" title="Show Password"></i>
@@ -703,7 +708,6 @@
                     <ul class="links">
                         <li><a href="./home.html" target="_blank">Customer Agreement</a></li>
                         <li><a href="#">Privacy Policy</a></li>
-                        <li><a href="#">GDPR</a></li>
                         <li><a href="#">Security</a></li>
                         <li><a href="#testimonials">Testimonials</a></li>
                         <li><a href="#">Physical Exercises</a></li>
@@ -734,12 +738,12 @@
 
         </section>
     </footer>
+    <!-- swipper js script -->
+    <script src="js/swiper-bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <!-- main js script -->
+    <script src="js/myswiper.js"></script>
+    <script src="js/formscript.js"></script>
 </body>
-<!-- swipper js script -->
-<script src="js/swiper-bundle.min.js"></script>
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-<!-- main js script -->
-<script src="js/myswiper.js"></script>
-<script src="js/formscript.js"></script>
 
 </html>
