@@ -118,3 +118,10 @@ contactMeForm.addEventListener('submit', (e) => {
 
     contactMeForm.reset();
 });
+
+
+const blogsFromDashboard = document.getElementById('blogsFromDashboard');
+const blogsFDContainer = document.createElement('div');
+blogsFDContainer.classList = 'blogsFDContainer';
+blogsFDContainer.id = 'blogsFDContainer';
+blogsFromDashboard.appendChild(blogsFDContainer);

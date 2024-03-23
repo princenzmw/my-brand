@@ -1,15 +1,16 @@
 /**
- * form Toggling and Visibility functions
- */
+   * form Toggling and Visibility functions
+   */
 
 const navLoginToggle = document.querySelector('.nvlogin');
 const navSignupToggle = document.querySelector('.nvsignup');
 const navLogOutToggle = document.getElementById('logOut');
-
+const navUpdateToggle = document.getElementById('updateMe');
 
 const signupPage = document.getElementById('acountsignuppage');
 const loginPage = document.getElementById('acountloginpage');
 const acoountRecoverPage = document.getElementById('acountrecoverypage');
+const userUpdateModal = document.getElementById('editUserModal');
 
 const showLoginPage = document.querySelector('.go_to_login');
 const showSignupPage = document.querySelector('.go_to_signup');
@@ -18,51 +19,63 @@ const backToLogin = document.querySelector('.back_to_login');
 const backToSignup = document.querySelector('.back_to_signup');
 
 navLoginToggle.addEventListener('click', () => {
-    loginPage.style.display = 'flex';
-    signupPage.style.display = 'none';
-})
+  loginPage.style.display = 'flex';
+  signupPage.style.display = 'none';
+});
 navSignupToggle.addEventListener('click', () => {
-    signupPage.style.display = 'flex';
-    loginPage.style.display = 'none';
-})
+  signupPage.style.display = 'flex';
+  loginPage.style.display = 'none';
+});
+
+// Close the modal when the user clicks on <span> (x)
+document.querySelector('.close').addEventListener('click', () => {
+  userUpdateModal.style.display = 'none';
+});
+
+// When the user clicks anywhere outside of the modal, close it
+window.addEventListener('click', (event) => {
+  if (event.target === userUpdateModal) {
+    userUpdateModal.style.display = 'none';
+  }
+});
 
 showLoginPage.addEventListener('click', () => {
-    loginPage.style.display = 'flex';
-    signupPage.style.display = 'none';
-    acoountRecoverPage.style.display = 'none';
-})
+  loginPage.style.display = 'flex';
+  signupPage.style.display = 'none';
+  acoountRecoverPage.style.display = 'none';
+});
 showSignupPage.addEventListener('click', () => {
-    signupPage.style.display = 'flex';
-    loginPage.style.display = 'none';
-})
+  signupPage.style.display = 'flex';
+  loginPage.style.display = 'none';
+});
 showRecoverPage.addEventListener('click', () => {
-    acoountRecoverPage.style.display = 'flex';
-    loginPage.style.display = 'none';
-})
+  acoountRecoverPage.style.display = 'flex';
+  loginPage.style.display = 'none';
+});
 backToLogin.addEventListener('click', () => {
-    loginPage.style.display = 'flex';
-    acoountRecoverPage.style.display = 'none';
-})
+  loginPage.style.display = 'flex';
+  acoountRecoverPage.style.display = 'none';
+});
 backToSignup.addEventListener('click', () => {
-    signupPage.style.display = 'flex';
-    acoountRecoverPage.style.display = 'none';
-})
+  signupPage.style.display = 'flex';
+  acoountRecoverPage.style.display = 'none';
+});
 
 /**
  * Password Visibility toggling buttons
  */
 const togglePasswordVisibility = (showIcon, hideIcon, passwordInput) => {
-    showIcon.addEventListener('click', () => {
-        passwordInput.type = 'text';
-        showIcon.style.display = 'none';
-        hideIcon.style.display = 'block';
-    });
+  showIcon.addEventListener('click', () => {
+    passwordInput.type = 'text';
+    showIcon.style.display = 'none';
+    hideIcon.style.display = 'block';
+  });
 
-    hideIcon.addEventListener('click', () => {
-        passwordInput.type = 'password';
-        hideIcon.style.display = 'none';
-        showIcon.style.display = 'block';
-    });
+  hideIcon.addEventListener('click', () => {
+    passwordInput.type = 'password';
+    hideIcon.style.display = 'none';
+    showIcon.style.display = 'block';
+  });
 };
 
 // For signup form
@@ -95,97 +108,16 @@ const recoveryRptHidePassIcon = document.querySelector('#recoveryform .form_div:
 const recoveryRptPasswordInput = document.getElementById('recpswdrpt');
 togglePasswordVisibility(recoveryRptShowPassIcon, recoveryRptHidePassIcon, recoveryRptPasswordInput);
 
-
 // Using the red button on the form to close it
 document.querySelectorAll('.closeTheForm').forEach(el => {
-    el.addEventListener('click', () => {
-        signupPage.style.display = 'none';
-        loginPage.style.display = 'none';
-        acoountRecoverPage.style.display = 'none';
-    })
+  el.addEventListener('click', () => {
+    signupPage.style.display = 'none';
+    loginPage.style.display = 'none';
+    acoountRecoverPage.style.display = 'none';
+  });
 });
 
-
-/******** End of forms toggling and othe usual functionalities **********/
-/**
- * Users form Validation functions
- */
-
-const users = [];
-
-// Function to hash a password
-function hashPassword(password) {
-    const hashedPassword = CryptoJS.SHA256(password).toString(CryptoJS.enc.Hex);
-    return hashedPassword;
-}
-
-// Function to add a new user to the system
-function addUser(firstname, lastname, username, email, phone, password, role = 'user') {
-    const hashedPassword = hashPassword(password);
-    const newUser = { firstname, lastname, username, email, phone, password: hashedPassword, role };
-    users.push(newUser);
-    localStorage.setItem('users', JSON.stringify(users));
-}
-
-// Function to edit an existing user in the system
-function editUser(firstname, lastname, username, email, phone, password, role) {
-    const existingUserIndex = users.findIndex(user => user.username === username);
-
-    if (existingUserIndex !== -1) {
-        const hashedPassword = hashPassword(password);
-        users[existingUserIndex].password = hashedPassword;
-        users[existingUserIndex].firstname = firstname;
-        users[existingUserIndex].lastname = lastname;
-        users[existingUserIndex].email = email;
-        users[existingUserIndex].phone = phone;
-        users[existingUserIndex].role = role;
-        localStorage.setItem('users', JSON.stringify(users));
-        console.log('User edited successfully');
-    } else {
-        console.error('User not found');
-    }
-}
-
-// Function to check if a username already exists
-function isUsernameExists(username) {
-    return users.some(user => user.username === username);
-}
-
-// Function to authenticate user
-function authenticateUser(username, password) {
-    const hashedPassword = hashPassword(password); // Hash the provided password
-    const user = users.find(u => u.username === username && u.password === hashedPassword);
-    return user ? user : null;
-}
-
-// Function to set user session
-function setUserSession(user) {
-    localStorage.setItem('currentUser', JSON.stringify(user));
-}
-
-// Function to get current user from session
-function getCurrentUser() {
-    return JSON.parse(localStorage.getItem('currentUser'));
-}
-
-// Function to check if user is authenticated
-function isAuthenticated() {
-    return !!getCurrentUser();
-}
-
-// Function to log out user
-function logoutUser() {
-    localStorage.removeItem('currentUser');
-}
-
-// Function to redirect to the login page
-function redirectToLoginPage() {
-    loginPage.style.display = 'flex';
-    signupPage.style.display = 'none';
-    acoountRecoverPage.style.display = 'none';
-}
-
-
+/** ****** End of forms toggling and othe usual functionalities **********/
 /**
  * Signup form Validation functions
  */
@@ -198,13 +130,74 @@ const signupPhone = document.getElementById('phonenbr');
 const signupPassword = document.getElementById('regpasswd');
 const signupPass2 = document.getElementById('regpasswd2');
 
-signupForm.addEventListener('submit', (event) => {
+// Function to check user's login status and update UI
+function checkLoginStatus() {
+  const token = localStorage.getItem('token');
+
+  if (token) {
+    // The user appears to be logged in, verify the token with the backend
+    fetch('https://prinko-backend.onrender.com/api/user/me', {
+      headers: {
+        Authorization: `Bearer ${token}`
+      }
+    })
+      .then(response => {
+        // If the token is valid, the server should return the user details
+        if (response.ok) {
+          navLoginToggle.style.display = 'none';
+          navSignupToggle.style.display = 'none';
+          navLogOutToggle.style.display = 'block';
+          navUpdateToggle.style.display = 'block';
+        } else {
+          // If the token is not valid, clear it from localStorage and update UI
+          localStorage.removeItem('token');
+          localStorage.removeItem('userId');
+          navLoginToggle.style.display = 'block';
+          navSignupToggle.style.display = 'block';
+          navLogOutToggle.style.display = 'none';
+          navUpdateToggle.style.display = 'none';
+        }
+      })
+      .catch(error => {
+        console.error('Error validating token:', error);
+        localStorage.removeItem('token');
+        localStorage.removeItem('userId');
+        navLoginToggle.style.display = 'block';
+        navSignupToggle.style.display = 'block';
+        navLogOutToggle.style.display = 'none';
+        navUpdateToggle.style.display = 'none';
+      });
+  } else {
+    // The user is not logged in
+    navLoginToggle.style.display = 'block';
+    navSignupToggle.style.display = 'block';
+    navLogOutToggle.style.display = 'none';
+  }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  checkLoginStatus();
+
+  signupForm.addEventListener('submit', (event) => {
     event.preventDefault();
 
     checkSignupInputs();
-})
+  });
 
-const checkSignupInputs = () => {
+  const addErrorMessage = (elem, message) => {
+    const formDiv = elem.parentElement;
+    const msgContainer = formDiv.querySelector('small');
+
+    msgContainer.innerText = message;
+    formDiv.classList = 'form_div error';
+  };
+
+  const addSuccessMessage = (elem) => {
+    const formDiv = elem.parentElement;
+    formDiv.classList = 'form_div success';
+  };
+
+  const checkSignupInputs = () => {
     const firstNameValue = firstName.value.trim();
     const lastNameValue = lastName.value.trim();
     const signupUserNameValue = signupUserName.value.trim();
@@ -213,129 +206,243 @@ const checkSignupInputs = () => {
     const signupPasswordValue = signupPassword.value.trim();
     const signupPass2Value = signupPass2.value.trim();
 
+    const msgDiv = document.getElementById('log_message');
+
     const nameRegex = /^[a-zA-Z-' ]{2,30}$/;
     const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-    const phoneNumberRegex = /^\+(?:[0-9] ?){6,14}[0-9]$/;
+    const phoneNumberRegex = /^(?:[0-9] ?){6,14}[0-9]$/;
     const strongPasswordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{8,12}$/;
     const usernameRegex = /^[a-zA-Z][a-zA-Z0-9_-]{3,14}$/;
 
     !nameRegex.test(firstNameValue) ? addErrorMessage(firstName, "Can't be blank!") : addSuccessMessage(firstName);
     !nameRegex.test(lastNameValue) ? addErrorMessage(lastName, "Can't be blank!") : addSuccessMessage(lastName);
-    !usernameRegex.test(signupUserNameValue) ? addErrorMessage(signupUserName, "Enter a Valid Usename!") : addSuccessMessage(signupUserName);
-    !emailRegex.test(signupEmailValue) ? addErrorMessage(signupEmail, "Invalid Email!") : addSuccessMessage(signupEmail);
-    !phoneNumberRegex.test(signupPhoneValue) ? addErrorMessage(signupPhone, "Invalid Phone Number!") : addSuccessMessage(signupPhone);
-    !strongPasswordRegex.test(signupPasswordValue) ? addErrorMessage(signupPassword, "Enter a strong Password!") : addSuccessMessage(signupPassword);
+    !usernameRegex.test(signupUserNameValue) ? addErrorMessage(signupUserName, 'Enter a Valid Usename!') : addSuccessMessage(signupUserName);
+    !emailRegex.test(signupEmailValue) ? addErrorMessage(signupEmail, 'Invalid Email!') : addSuccessMessage(signupEmail);
+    !phoneNumberRegex.test(signupPhoneValue) ? addErrorMessage(signupPhone, 'Invalid Phone Number!') : addSuccessMessage(signupPhone);
+    !strongPasswordRegex.test(signupPasswordValue) ? addErrorMessage(signupPassword, 'Enter a strong Password!') : addSuccessMessage(signupPassword);
 
     if (signupPass2Value === '') {
-        addErrorMessage(signupPass2, "Can't be blank!");
+      addErrorMessage(signupPass2, "Can't be blank!");
     } else if (signupPass2Value !== signupPasswordValue) {
-        addErrorMessage(signupPass2, 'Passwords do not match');
+      addErrorMessage(signupPass2, 'Passwords do not match');
     } else {
-        addSuccessMessage(signupPass2);
+      addSuccessMessage(signupPass2);
     }
-
-    const allInputsValid = Array.from(signupForm.querySelectorAll('.form_div')).every(div => div.classList.contains('success'));
-    const anyInputsEmpty = Array.from(signupForm.querySelectorAll('.form_div')).some(div => div.querySelector('input').value.trim() === '');
-
-    if (allInputsValid && !anyInputsEmpty) {
-        if (isUsernameExists(signupUserNameValue)) {
-            console.error('Username already exists');
+    const payload = {
+      firstName: firstNameValue,
+      lastName: lastNameValue,
+      username: signupUserNameValue,
+      phone: signupPhoneValue,
+      email: signupEmailValue,
+      password: signupPasswordValue
+    };
+    fetch('https://prinko-backend.onrender.com/api/user/register', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(payload)
+    })
+      .then(res => {
+        if (!res.ok) {
+          return res.json().then(data => {
+            console.error('Registration failed:', data);
+            throw new Error(data.message || 'An error occurred while registering');
+          });
+        }
+        return res.json();
+      })
+      .then(data => {
+        signupForm.reset();
+        loginPage.style.display = 'flex';
+        signupPage.style.display = 'none';
+        acoountRecoverPage.style.display = 'none';
+        signupForm.querySelectorAll('.form_div .goodInput').forEach(div => {
+          div.style.display = 'none';
+        });
+        signupForm.querySelectorAll('.form_div').forEach(div => div.classList.remove('success'));
+      })
+      .catch(error => {
+        console.error('Registration error:', error);
+        if (error.errors && Array.isArray(error.errors)) {
+          msgDiv.innerHTML = error.errors.map(err => `${err.msg}`).join('<br>');
         } else {
-            addUser(firstNameValue, lastNameValue, signupUserNameValue, signupEmailValue, signupPhoneValue, signupPasswordValue);
-            console.log('User registered successfully');
-            signupForm.reset();
-            addToUserDashboard(firstNameValue, lastNameValue, signupUserNameValue, signupEmailValue, signupPhoneValue);
-            redirectToLoginPage();
-            signupForm.querySelectorAll('.form_div .goodInput').forEach(div => div.style.display = 'none');
-            signupForm.querySelectorAll('.form_div').forEach(div => div.classList.remove('success'));
+          msgDiv.innerHTML = error.message;
         }
-    }
-};
+      });
+  };
 
-const addErrorMessage = (elem, message) => {
-    const formDiv = elem.parentElement;
-    const msgContainer = formDiv.querySelector('small');
+  // End of sign up
+  const loginForm = document.getElementById('loginform');
 
-    msgContainer.innerText = message;
-    formDiv.classList = 'form_div error';
-}
-
-const addSuccessMessage = (elem) => {
-    const formDiv = elem.parentElement;
-    formDiv.classList = 'form_div success';
-}
-
-const usInformation = JSON.parse(localStorage.getItem('userProfile')) || [];
-function addToUserDashboard(fnm, lnm, unm, uml, ufne) {
-    const uRole = uml.endsWith('admin.io') ? 'admin' : 'user';
-
-    const information = [
-        {
-            picture: "../../images/ProfileIcon.webp",
-            employeeName: fnm,
-            employeeAge: lnm,
-            employeeCity: unm,
-            employeeEmail: uml,
-            employeePhone: ufne,
-            employeePost: uRole,
-            startDate: new Date().toISOString().split('T')[0]
-        }
-    ];
-    usInformation.push(information);
-    localStorage.setItem('userProfile', JSON.stringify(usInformation));
-}
-
-// End of sign up
-document.addEventListener('DOMContentLoaded', () => {
-    if (localStorage.getItem('currentUser')) {
-        navLogOutToggle.style.display = 'block';
-        navLoginToggle.style.display = 'none';
-        navSignupToggle.style.display = 'none';
-    }
-});
-
-loginPage.addEventListener('submit', (e) => {
+  loginForm.addEventListener('submit', (e) => {
     e.preventDefault();
 
-    const username = document.getElementById('logusr').value;
-    const password = document.getElementById('logpswd').value;
+    const messageDiv = document.querySelector('.log_message');
 
-    const user = authenticateUser(username, password);
+    const email = document.getElementById('logusr').value.trim();
+    const password = document.getElementById('logpswd').value.trim();
 
-    if (user) {
-        setUserSession(user);
-        console.log('Login successful', user.username);
+    const payload = { email, password };
+    let token;
 
-        // Extract domain from email
-        const domain = user.email.split('@')[1];
-
-        // Check if the domain ends with 'admin.io'
-        if (domain.endsWith('admin.io')) {
-            window.location.href = 'pages/Admin/dashboard.html'; // Redirect to admin dashboard
-        } else {
-            loginPage.style.display = 'none';
-            window.location.href = 'index.html';
+    fetch('https://prinko-backend.onrender.com/api/user/login', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(payload)
+    })
+      .then(response => {
+        if (!response.ok) {
+          return response.json().then(errorData => {
+            throw new Error(errorData.message || 'Failed to login');
+          });
         }
+        return response.json();
+      })
+      .then(data => {
+        token = data.token;
 
-    } else {
-        alert('Invalid username or password');
-    }
-});
+        // Store the token in localStorage
+        localStorage.setItem('token', token);
 
-// Function for logging out the user
-navLogOutToggle.addEventListener('click', () => {
-    logoutUser();
+        // Fetch the currently logged-in user's details
+        return fetch('https://prinko-backend.onrender.com/api/user/me', {
+          headers: {
+            Authorization: `Bearer ${token}`
+          }
+        });
+      })
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Failed to fetch user details');
+        }
+        return response.json();
+      })
+      .then(userData => {
+        // Store the userId in localStorage
+        localStorage.setItem('userId', userData._id);
+
+        loginForm.reset();
+        messageDiv.textContent = 'Logged in successfully!';
+        window.location.href = 'index.html';
+      })
+      .catch(error => {
+        console.error('Login error:', error);
+        messageDiv.textContent = error.message;
+      });
+  });
+
+  // Function for logging out the user
+  function logoutUser() {
+    localStorage.removeItem('token');
+    localStorage.removeItem('userId');
+
+    // Update UI elements to reflect that the user has logged out
     navLoginToggle.style.display = 'block';
     navSignupToggle.style.display = 'block';
     navLogOutToggle.style.display = 'none';
-})
+    navUpdateToggle.style.display = 'none';
 
-function initApp() {
-    const savedUsers = localStorage.getItem('users');
-    if (savedUsers) {
-        users.push(...JSON.parse(savedUsers));
-    }
+    window.location.href = 'index.html';
+  }
+
+  // Event listener for the logout button
+  navLogOutToggle.addEventListener('click', () => {
+    logoutUser();
+  });
+});
+
+// ****************************************************************
+/**
+ * Get data to be filled in the
+ * User Update form
+ */
+
+// Function to pre-fill the form with user data
+function fillFormWithUserData(userData) {
+  document.getElementById('editFirstName').value = userData.firstName || '';
+  document.getElementById('editLastName').value = userData.lastName || '';
+  document.getElementById('editUserName').value = userData.username || '';
+  document.getElementById('editEmail').value = userData.email || '';
+  document.getElementById('editPhone').value = userData.phone || '';
+  document.getElementById('profPicUpdate').src = `https://prinko-backend.onrender.com/api${userData.profilePic}` || '';
+  // Continue for other fields...
 }
 
-// Call the initialization function when the page is loaded
-window.addEventListener('load', initApp);
+// Function to fetch user data and fill the form
+function fetchAndFillUserData() {
+  const token = localStorage.getItem('token');
+  if (!token) {
+    console.error('No token found, user might not be logged in');
+    return;
+  }
+
+  fetch('https://prinko-backend.onrender.com/api/user/me', {
+    headers: {
+      'Authorization': `Bearer ${token}`,
+    },
+  })
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Failed to fetch user details');
+      }
+      return response.json();
+    })
+    .then(userData => {
+      fillFormWithUserData(userData);
+    })
+    .catch(error => {
+      console.error('Error fetching user data:', error);
+      document.getElementById('upmessage').textContent = error.message;
+    });
+}
+
+// Call the function when the form is about to be displayed
+navUpdateToggle.addEventListener('click', () => {
+  fetchAndFillUserData();
+  userUpdateModal.style.display = 'block';
+});
+
+// ****************************************************************
+/**
+ * UPDATE FORM
+ */
+const updateForm = document.getElementById('editUserForm');
+
+updateForm.addEventListener('submit', (e) => {
+  e.preventDefault();
+
+  // Assuming the user ID is available and stored, for example, in localStorage
+  const userId = localStorage.getItem('userId');
+  const formData = new FormData(updateForm);
+
+  fetch(`https://prinko-backend.onrender.com/api/user/update/${userId}`, {
+    method: 'PUT',
+    headers: {
+      // Assuming the token is stored in localStorage after login
+      'Authorization': 'Bearer ' + localStorage.getItem('token')
+    },
+    body: formData
+  })
+    .then(res => {
+      if (!res.ok) {
+        return res.json().then(data => {
+          console.error('Update failed:', data);
+          throw new Error(data.message || 'An error occurred while updating');
+        });
+      }
+      return res.json();
+    })
+    .then(data => {
+      updateForm.reset();
+      document.getElementById('upmessage').textContent = 'User Updated successfully!';
+      // Optionally, redirect to another page
+      // window.location.href = '/success-page.html';
+    })
+    .catch(error => {
+      console.error('Update error:', error);
+      document.getElementById('upmessage').textContent = error.message;
+    });
+});

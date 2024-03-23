@@ -2,295 +2,173 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard</title>
-    <link rel="stylesheet" href="../../css/dashboard/admindash.css">
-    <link rel="stylesheet" href="../../css/dashboard/users.css">
-    <script src="https://kit.fontawesome.com/6e24aa161b.js" crossorigin="anonymous"></script>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <!--CDN for icons from Bootstrap 5-->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="../../css/dashboard/admindash.css">
+  <link rel="stylesheet" href="../../css/dashboard/users.css">
+  <script src="https://kit.fontawesome.com/6e24aa161b.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
-    <nav id="dashboard_navbar">
-        <div class="dash_profile">
-            <img src="../../images/prinko.png" alt="Dashboard Profile pic" class="dash_img">
+  <nav id="dashboard_navbar">
+    <div class="dash_profile">
+      <img src="../../images/prinko.png" alt="Dashboard Profile pic" class="dash_img">
+    </div>
+    <div class="dash_links">
+      <h2 class="dash_nav_links" id="dsh_blg"><b><i class="fa-solid fa-blog"></i></b><span
+          class="linkToShow">Blogs</span></h2>
+      <h2 class="dash_nav_links" id="dsh_prj"><b><i class="fa-solid fa-list-check"></i></b><span
+          class="linkToShow">Projects</span>
+      </h2>
+      <h2 class="dash_nav_links" id="dsh_port"><b><i class="fa-solid fa-business-time"></i></b><span
+          class="linkToShow">Portfolio</span></h2>
+      <h2 class="dash_nav_links" id="dsh_usrs"><b><i class="fa-solid fa-users"></i></b><span
+          class="linkToShow">Users</span></h2>
+      <h2 class="dash_nav_links" id="dsh_posts"><b><i class="fa-solid fa-clone"></i></b><span
+          class="linkToShow">Messages</span></h2>
+      <h2 class="dash_nav_links" id="dsh_comts"><b><i class="fa-solid fa-comments"></i></b><span
+          class="linkToShow">Comments</span>
+      </h2>
+    </div>
+    <div class="dash_logout">
+      <h2 class="dash_nav_links" id="dsh_lgt"><span class="linkToShow">Logout</span><b><i
+            class="fa-solid fa-right-from-bracket"></i></b></h2>
+    </div>
+  </nav>
+  <header class="dash_header">
+    <img src="../../images/Prince-Logo.png" alt=" a logo image">
+    <h3>Prince NZAMUWE</h3>
+    <span id="toggleNav"><i class="fa-solid fa-bars humberger"></i></span>
+  </header>
+  <main>
+    <div id="dashboard_container">
+      <div class="dash_top">
+        <div class="modes_toggle">
+          <p class="togglingsidebar">
+            <span class="tog_on"><i class="fa-solid fa-toggle-on"></i></span>
+            <span class="tog_off"><i class="fa-solid fa-toggle-off"></i></span>
+          </p>
+          <h1 class="dash_big_title">Dashboard</h1>
+          <p class="themes_changer">
+            <span class="dark_thm"><i class="fa-solid fa-moon"></i></span>
+            <span class="light_thm"><i class="fa-solid fa-sun"></i></span>
+          </p>
         </div>
-        <div class="dash_links">
-            <h2 class="dash_nav_links" id="dsh_blg"><b><i class="fa-solid fa-blog"></i></b><span
-                    class="linkToShow">Blogs</span></h2>
-            <h2 class="dash_nav_links" id="dsh_prj"><b><i class="fa-solid fa-list-check"></i></b><span
-                    class="linkToShow">Projects</span>
-            </h2>
-            <h2 class="dash_nav_links" id="dsh_port"><b><i class="fa-solid fa-business-time"></i></b><span
-                    class="linkToShow">Portfolio</span></h2>
-            <h2 class="dash_nav_links" id="dsh_usrs"><b><i class="fa-solid fa-users"></i></b><span
-                    class="linkToShow">Users</span></h2>
-            <h2 class="dash_nav_links" id="dsh_posts"><b><i class="fa-solid fa-clone"></i></b><span
-                    class="linkToShow">Messages</span></h2>
-            <h2 class="dash_nav_links" id="dsh_comts"><b><i class="fa-solid fa-comments"></i></b><span
-                    class="linkToShow">Comments</span>
-            </h2>
+        <div class="dash_overview">
+          <div class="statistics one">
+            <b><i class="fa-solid fa-users-between-lines"></i></b>
+            <h3>Users</h3>
+            <h4>46</h4>
+          </div>
+          <div class="statistics one">
+            <b><i class="fa-solid fa-envelopes-bulk"></i></b>
+            <h3>Post</h3>
+            <h4>14</h4>
+          </div>
+          <div class="statistics one">
+            <b><i class="fa-solid fa-comment-dots"></i></b>
+            <h3>Comments</h3>
+            <h4>246</h4>
+          </div>
+          <div class="statistics one">
+            <b><i class="fa-solid fa-message"></i></b>
+            <h3>Messages</h3>
+            <h4>146</h4>
+          </div>
         </div>
-        <div class="dash_logout">
-            <h2 class="dash_nav_links" id="dsh_lgt"><span class="linkToShow">Logout</span><b><i
-                        class="fa-solid fa-right-from-bracket"></i></b></h2>
-        </div>
-    </nav>
-    <header class="dash_header">
-        <img src="../../images/Prince-Logo.png" alt=" a logo image">
-        <h3>Prince NZAMUWE</h3>
-        <span id="toggleNav"><i class="fa-solid fa-bars humberger"></i></span>
-    </header>
-    <main>
-        <div id="dashboard_container">
-            <div class="dash_top">
-                <div class="modes_toggle">
-                    <p class="togglingsidebar">
-                        <span class="tog_on"><i class="fa-solid fa-toggle-on"></i></span>
-                        <span class="tog_off"><i class="fa-solid fa-toggle-off"></i></span>
-                    </p>
-                    <h1 class="dash_big_title">Dashboard</h1>
-                    <p class="themes_changer">
-                        <span class="dark_thm"><i class="fa-solid fa-moon"></i></span>
-                        <span class="light_thm"><i class="fa-solid fa-sun"></i></span>
-                    </p>
-                </div>
-                <div class="dash_overview">
-                    <div class="statistics one">
-                        <b><i class="fa-solid fa-users-between-lines"></i></b>
-                        <h3>Users</h3>
-                        <h4>46</h4>
-                    </div>
-                    <div class="statistics one">
-                        <b><i class="fa-solid fa-envelopes-bulk"></i></b>
-                        <h3>Post</h3>
-                        <h4>14</h4>
-                    </div>
-                    <div class="statistics one">
-                        <b><i class="fa-solid fa-comment-dots"></i></b>
-                        <h3>Comments</h3>
-                        <h4>246</h4>
-                    </div>
-                    <div class="statistics one">
-                        <b><i class="fa-solid fa-message"></i></b>
-                        <h3>Messages</h3>
-                        <h4>146</h4>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div id="renderedDataContainer">
-            <div id="returnContainer">
-                <div id="blogContainer">
-                    <div class="existingBlogs">
-                        <h2 class="titlesblogs">Blogs</h2>
-                        <h3 id="blogadder">New blog <b><i class="fa-solid fa-circle-plus"></i></b></h3>
-                    </div>
-                    <div class="available_blog">
-                        <!-- <div class="av_blog_div">
+      </div>
+    </div>
+    <div id="renderedDataContainer">
+      <div id="returnContainer">
+        <div id="blogContainer">
+          <div class="existingBlogs">
+            <h2 class="titlesblogs">Blogs</h2>
+            <h3 id="blogadder">New blog <b><i class="fa-solid fa-circle-plus"></i></b></h3>
+          </div>
+          <div class="available_blog">
+            <!-- <div class="av_blog_div">
                     </div> -->
-                    </div>
-                </div>
-                <div class="addingBlog">
-                    <form method="post" id="new_blog_div">
-                        <div id="formClose"><i class="fa-regular fa-circle-xmark"></i></div>
-                        <div class="blgaddv">
-                            <label for="new_blog_image">Photo:</label>
-                            <input type="file" name="blog_image" id="new_blog_image" accept="image/*">
-                        </div>
-                        <div class="blgaddv">
-                            <label for="new_blog_ttle">Title:</label>
-                            <input type="text" name="blog_title" id="new_blog_ttle" required>
-                        </div>
-                        <div class="blgaddv">
-                            <label for="new_blog_bdy">Description:</label>
-                            <textarea name="blog_body" id="new_blog_bdy" rows="4" required></textarea>
-                        </div>
-                        <div class="blgaddv">
-                            <button type="submit" id="blg_sbmt_btn">Add Blog</button>
-                        </div>
-                    </form>
-                </div>
-                <div class="edittingBlog">
-                    <div id="av_blog_delete_msg">
-                        <div class="del_confirmation_btns">
-                            <p>Are You sure you want to delete this blog?</p>
-                            <button id="av_blg_del_cancelBtn">No</button>
-                            <button id="av_blg_del_confirmBtn">Yes</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div id="portfolioContainer"></div>
-            <div id="projectContainer"></div>
-            <div id="usersContainer">
-                <section class="p-3">
-
-                    <div class="row">
-                        <div class="col-12">
-                            <button class="btn btn-primary newUser" data-bs-toggle="modal"
-                                data-bs-target="#userForm">Add User <i class="bi bi-people"></i></button>
-                        </div>
-                    </div>
-                    <h3>Available Users:</h3>
-                    <div class="row">
-                        <div class="col-12">
-                            <table class="table table-striped table-hover mt-3 text-center table-bordered">
-
-                                <thead>
-                                    <tr>
-                                        <th>ID</th>
-                                        <th>Picture</th>
-                                        <th>First Name</th>
-                                        <th>Last Name</th>
-                                        <th>Username</th>
-                                        <th>Email</th>
-                                        <th>Phone</th>
-                                        <th>Role</th>
-                                        <th>Date Created</th>
-                                        <th>Action Buttons</th>
-                                    </tr>
-                                </thead>
-
-                                <tbody id="data"></tbody>
-
-                            </table>
-                        </div>
-                    </div>
-
-                </section>
-
-                <!--Modal Form-->
-                <div class="modal fade" id="userForm">
-                    <div class="modal-dialog modal-dialog-centered modal-lg">
-                        <div class="modal-content">
-
-                            <div class="modal-header">
-                                <h4 class="modal-title">Fill the Form below</h4>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                    aria-label="Close"></button>
-                            </div>
-
-                            <div class="modal-body">
-
-                                <form action="#" id="myForm">
-
-                                    <div class="card imgholder">
-                                        <label for="imgInput" class="upload">
-                                            <input type="file" id="imgInput">
-                                            <i class="bi bi-plus-circle-dotted"></i>
-                                        </label>
-                                        <img src="../../images/ProfileIcon.webp" alt="" width="200" height="200"
-                                            class="img">
-                                    </div>
-
-                                    <div class="inputField">
-                                        <div>
-                                            <label for="name">First Name:</label>
-                                            <input type="text" id="name" required>
-                                        </div>
-                                        <div>
-                                            <label for="age">Last Name:</label>
-                                            <input type="text" id="age" required>
-                                        </div>
-                                        <div>
-                                            <label for="city">Username</label>
-                                            <input type="text" id="city" required>
-                                        </div>
-                                        <div>
-                                            <label for="email">E-mail:</label>
-                                            <input type="email" id="email" required>
-                                        </div>
-                                        <div>
-                                            <label for="phone">Phone:</label>
-                                            <input type="text" id="phone" minlength="10" maxlength="13" required>
-                                        </div>
-                                        <div>
-                                            <label for="post">Role:</label>
-                                            <input type="text" id="post" required>
-                                        </div>
-                                    </div>
-
-                                </form>
-                            </div>
-
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                <button type="submit" form="myForm" class="btn btn-primary submit">Submit</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!--Read Data Modal-->
-                <div class="modal fade" id="readData">
-                    <div class="modal-dialog modal-dialog-centered modal-lg">
-                        <div class="modal-content">
-
-                            <div class="modal-header">
-                                <h4 class="modal-title">Profile</h4>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                    aria-label="Close"></button>
-                            </div>
-
-                            <div class="modal-body">
-
-                                <form action="#" id="myForm">
-
-                                    <div class="card imgholder">
-                                        <img src="../../images/ProfileIcon.webp" alt="" width="200" height="200"
-                                            class="showImg">
-                                    </div>
-
-                                    <div class="inputField">
-                                        <div>
-                                            <label for="name">First Name:</label>
-                                            <input type="text" id="showName" disabled>
-                                        </div>
-                                        <div>
-                                            <label for="age">Last Name</label>
-                                            <input type="text" id="showAge" disabled>
-                                        </div>
-                                        <div>
-                                            <label for="city">Username:</label>
-                                            <input type="text" id="showCity" disabled>
-                                        </div>
-                                        <div>
-                                            <label for="email">E-mail:</label>
-                                            <input type="email" id="showEmail" disabled>
-                                        </div>
-                                        <div>
-                                            <label for="phone">Phone</label>
-                                            <input type="text" id="showPhone" minlength="10" maxlength="13" disabled>
-                                        </div>
-                                        <div>
-                                            <label for="post">Role:</label>
-                                            <input type="text" id="showPost" disabled>
-                                        </div>
-                                    </div>
-
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div id="messageContainer">
-                <div id="addedmessages"></div>
-            </div>
-            <div id="commentContainer"></div>
+          </div>
         </div>
-    </main>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-        crossorigin="anonymous"></script>
+        <div class="addingBlog">
+          <form method="post" id="new_blog_div">
+            <div id="formClose"><i class="fa-regular fa-circle-xmark"></i></div>
+            <div class="blgaddv">
+              <label for="new_blog_image">Photo:</label>
+              <input type="file" name="blog_image" id="new_blog_image" accept="image/*">
+            </div>
+            <div class="blgaddv">
+              <label for="new_blog_ttle">Title:</label>
+              <input type="text" name="blog_title" id="new_blog_ttle" required>
+            </div>
+            <div class="blgaddv">
+              <label for="new_blog_bdy">Description:</label>
+              <textarea name="blog_body" id="new_blog_bdy" rows="4" required></textarea>
+            </div>
+            <div class="blgaddv">
+              <button type="submit" id="blg_sbmt_btn">Add Blog</button>
+            </div>
+          </form>
+        </div>
+        <div class="edittingBlog">
+          <div id="av_blog_delete_msg">
+            <div class="del_confirmation_btns">
+              <p>Are You sure you want to delete this blog?</p>
+              <button id="av_blg_del_cancelBtn">No</button>
+              <button id="av_blg_del_confirmBtn">Yes</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="portfolioContainer"></div>
+      <div id="projectContainer"></div>
+      <div id="usersContainer">
+        <div class="adusrcontainer">
+          <h2>Users Table</h2>
+          <table class="table-users">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Username</th>
+                <th>Phone</th>
+                <th>Email</th>
+                <th>Profile Pic</th>
+                <th>Role</th>
+                <th>Liked Blogs</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="usersList">
+              <!-- User rows will be added here by admin.js -->
+            </tbody>
+          </table>
+        </div>
 
-    <script src="../../js/dashboard/user.js"></script>
-    <script src="../../js/dashboard/admindash.js"></script>
+        <!-- Delete User Confirmation Modal -->
+        <div id="deleteUserModal" class="modal">
+          <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Confirm Deletion</h2>
+            <p>Are you sure you want to delete this user?</p>
+            <div>
+              <button id="confirmDelete" class="confirm-btn">Yes</button>
+              <button id="cancelDelete" class="cancel-btn">No</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="messageContainer">
+        <div id="addedmessages"></div>
+      </div>
+      <div id="commentContainer"></div>
+    </div>
+  </main>
+
+  <script src="../../js/dashboard/user.js"></script>
+  <script src="../../js/dashboard/admindash.js"></script>
 </body>
 
 </html>

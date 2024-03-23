@@ -1,152 +1,95 @@
-var form = document.getElementById("myForm"),
-    imgInput = document.querySelector(".img"),
-    file = document.getElementById("imgInput"),
-    userName = document.getElementById("name"),
-    age = document.getElementById("age"),
-    city = document.getElementById("city"),
-    email = document.getElementById("email"),
-    phone = document.getElementById("phone"),
-    post = document.getElementById("post"),
-    submitBtn = document.querySelector(".submit"),
-    userInfo = document.getElementById("data"),
-    modal = document.getElementById("userForm"),
-    modalTitle = document.querySelector("#userForm .modal-title"),
-    newUserBtn = document.querySelector(".newUser")
+document.addEventListener('DOMContentLoaded', () => {
 
-
-let getData = localStorage.getItem('userProfile') ? JSON.parse(localStorage.getItem('userProfile')) : []
-
-let isEdit = false, editId
-showInfo()
-
-newUserBtn.addEventListener('click', () => {
-    submitBtn.innerText = 'Submit',
-        modalTitle.innerText = "Fill the Form"
-    isEdit = false
-    imgInput.src = "../../images/ProfileIcon.webp"
-    form.reset()
-})
-
-
-file.onchange = function () {
-    if (file.files[0].size < 1000000) {  // 1MB = 1000000
-        var fileReader = new FileReader();
-
-        fileReader.onload = function (e) {
-            imgUrl = e.target.result
-            imgInput.src = imgUrl
-        }
-
-        fileReader.readAsDataURL(file.files[0])
-    }
-    else {
-        alert("This file is too large! [> 1MB]")
-    }
-}
-
-
-function showInfo() {
-    document.querySelectorAll('.employeeDetails').forEach(info => info.remove())
-    getData.forEach((element, index) => {
-        let createElement = `<tr class="employeeDetails">
-            <td>${index + 1}</td>
-            <td><img src="${element.picture}" alt="" width="50" height="50"></td>
-            <td>${element.employeeName}</td>
-            <td>${element.employeeAge}</td>
-            <td>${element.employeeCity}</td>
-            <td>${element.employeeEmail}</td>
-            <td>${element.employeePhone}</td>
-            <td>${element.employeePost}</td>
-            <td>${element.startDate}</td>
-
-
-            <td>
-                <button class="btn btn-success" onclick="readInfo('${element.picture}', '${element.employeeName}', '${element.employeeAge}', '${element.employeeCity}', '${element.employeeEmail}', '${element.employeePhone}', '${element.employeePost}', '${element.startDate}')" data-bs-toggle="modal" data-bs-target="#readData"><i class="bi bi-eye"></i></button>
-
-                <button class="btn btn-primary" onclick="editInfo(${index}, '${element.picture}', '${element.employeeName}', '${element.employeeAge}', '${element.employeeCity}', '${element.employeeEmail}', '${element.employeePhone}', '${element.employeePost}', '${element.startDate}')" data-bs-toggle="modal" data-bs-target="#userForm"><i class="bi bi-pencil-square"></i></button>
-
-                <button class="btn btn-danger" onclick="deleteInfo(${index})"><i class="bi bi-trash"></i></button>
-                            
-            </td>
-        </tr>`
-
-        userInfo.innerHTML += createElement
+  fetch('https://prinko-backend.onrender.com/api/user/getAllUsers')
+    .then(res => res.json())
+    .then(data => {
+      console.log(data);
+      const usersList = document.getElementById('usersList');
+      data.forEach(user => {
+        const tr = document.createElement('tr');
+        tr.id = `user-${user._id}`;
+        tr.innerHTML = `
+        <td>${user._id}</td>
+        <td>${user.firstName}</td>
+        <td>${user.lastName}</td>
+        <td>${user.username}</td>
+        <td>${user.phone}</td>
+        <td>${user.email}</td>
+        <td><img src="https://prinko-backend.onrender.com/api${user.profilePic}" alt="Profile Pic" style="width: 50px; height: auto;"></td>
+        <td>${user.role}</td>
+        <td>${user.likedBlogs.length} blogs</td>
+        <td>
+          <button onclick="NotifyUser('${user._id}')">Notify</button>
+          <button onclick="deleteUser('${user._id}')">Delete</button>
+        </td>
+      `;
+        usersList.appendChild(tr);
+      });
     })
-}
-showInfo()
+    .catch(error => console.error('Fetch error:', error));
+});
 
-
-function readInfo(pic, name, age, city, email, phone, post) {
-    document.querySelector('.showImg').src = pic,
-        document.querySelector('#showName').value = name,
-        document.querySelector("#showAge").value = age,
-        document.querySelector("#showCity").value = city,
-        document.querySelector("#showEmail").value = email,
-        document.querySelector("#showPhone").value = phone,
-        document.querySelector("#showPost").value = post
+function NotifyUser(userId) {
+  // Send a notification (message) to the user
+  document.getElementById('editUserModal').style.display = 'block';
 }
 
+function deleteUser(userId) {
+  const deleteUserModal = document.getElementById('deleteUserModal');
+  deleteUserModal.setAttribute('data-userId', userId);
 
-function editInfo(index, pic, name, Age, City, Email, Phone, Post) {
-    isEdit = true
-    editId = index
-    imgInput.src = pic
-    userName.value = name
-    age.value = Age
-    city.value = City
-    email.value = Email,
-        phone.value = Phone,
-        post.value = Post
-
-    submitBtn.innerText = "Update"
-    modalTitle.innerText = "Update The Form"
+  deleteUserModal.style.display = 'block';
 }
 
-function addToStorage(x) {
-    localStorage.setItem("userProfile", JSON.stringify(x));
-}
+document.querySelectorAll('.modal .close').forEach(closeButton => {
+  closeButton.addEventListener('click', () => {
+    closeButton.closest('.modal').style.display = 'none';
+  });
+});
 
-function deleteInfo(index) {
-    if (confirm("Are you sure want to delete?")) {
-        getData.splice(index, 1)
-        addToStorage(getData);
-        showInfo()
+// Close the modal When the user clicks anywhere outside of it
+window.addEventListener('click', (event) => {
+  document.querySelectorAll('.modal').forEach(modal => {
+    if (event.target === modal) {
+      modal.style.display = 'none';
     }
-}
+  });
+});
 
-form.addEventListener('submit', (e) => {
-    e.preventDefault()
+// Handle delete confirmation (Yes button)
+document.getElementById('confirmDelete').addEventListener('click', () => {
+  const userId = document.getElementById('deleteUserModal').getAttribute('data-userId');
+  const API_URL = `https://prinko-backend.onrender.com/api/user/delete/${userId}`;
+  const token = localStorage.getItem('token');
 
-    const information = {
-        picture: imgInput.src == undefined ? "../../images/ProfileIcon.webp" : imgInput.src,
-        employeeName: userName.value,
-        employeeAge: age.value,
-        employeeCity: city.value,
-        employeeEmail: email.value,
-        employeePhone: phone.value,
-        employeePost: post.value,
-        startDate: new Date().toISOString().split('T')[0]
+  fetch(API_URL, {
+    method: 'DELETE',
+    headers: {
+      'Authorization': `Bearer ${token}`
     }
+  })
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Failed to delete user');
+      }
+      return response.json();
+    })
+    .then(() => {
+      console.log('User deleted successfully');
+      // Remove the user's row from the table
+      document.getElementById(`user-${userId}`).remove();
+      // Close the modal
+      document.getElementById('deleteUserModal').style.display = 'none';
+    })
+    .catch(error => {
+      console.error('Error:', error);
+    });
+});
 
-    if (!isEdit) {
-        getData.push(information)
-    }
-    else {
-        isEdit = false
-        getData[editId] = information
-    }
+// Handle delete cancellation (No button)
+document.getElementById('cancelDelete').addEventListener('click', () => {
+  // Close the modal
+  document.getElementById('deleteUserModal').style.display = 'none';
+});
 
-    addToStorage(getData);
 
-    submitBtn.innerText = "Submit"
-    modalTitle.innerHTML = "Fill The Form"
-
-    showInfo()
-
-    form.reset()
-
-    imgInput.src = "../../images/ProfileIcon.webp"
-
-    // modal.style.display = "none"
-    // document.querySelector(".modal-backdrop").remove()
-})
